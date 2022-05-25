@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>SCSS-Миксин «Отзывчивое (адаптивное) свойство»</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="mixin">
+				<div class="mixin__container">
+					<h1 class="installation__title">SCSS-Миксин «Отзывчивое (адаптивное) свойство»</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						С помощью SCSS-миксина «Отзывчивое (адаптивное) свойство» можно отзывчиво (в зависимости ширины экрана)
+						изменять значение того или иного CSS-свойства от начального значения, на определенной ширине экрана, до
+						конечного значения на другой ширине экрана. Можно указывать произвольные промежутки ширин. Также, существует
+						несколько режимов поведения миксина вне указанных промежутках.
+					</div>
+					<div class="info-installation__quote">
+						<div class="info-post__text">
+							Миксин представлен в двух реализациях — clamp() и calc(). Сlamp работает быстрее, но если возникают проблемы
+							с поддержкой браузерами миксин автоматически переключится на calc(). <br>
+							<i>Принудительно использовать calc() можно изменив код миксина в файле scss/base/mixins.scss</i>
+						</div>
+					</div>
+
+
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Использование миксина</h2>
+						<div class="info-post__text">
+							Чтобы работать с миксином нужно в SCSS селекторе вызвать сниппет <span class="info-installation__bold">av:</span>
+						</div>
+
+						<div class="info-post__text">
+							<i>Базовый режим работы миксина:</i>
+						</div>
+
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"свойство"</span>, начальное значение, конечное значение)</span></span>;</code>
+						</div>
+
+						<div class="info-post__text">
+							Где:
+						</div>
+
+						<ul class="info-content__list">
+							<li class="info-installation__item"><span class="info-installation__bold">свойство </span> — CSS-свойство,
+								значение которого нужно адаптировать. Можно указать любое свойство значение которого указывается в
+								цифрах.</li>
+							<li class="info-installation__item"><span class="info-installation__bold">начальное значение</span> —
+								стартовое значение свойства в пикселях, пишем число без px. Обычно указывается по макету.</li>
+							<li class="info-installation__item"><span class="info-installation__bold">конечное значение</span>—
+								финальное значение свойства в пикселях, пишем число без px. Значение, к которому мы хотим прийти на
+								меньших ширинах экрана.</li>
+						</ul>
+
+						<div class="info-post__text">
+							<i>Примеры:</i>
+						</div>
+
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"font-size"</span>, <span class="number">50</span>, <span class="number">20</span>)</span></span>; <br>
+								<span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"padding-top"</span>, <span class="number">80</span>, <span class="number">10</span>)</span></span>;
+								...</code>
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Алгоритм работы миксина</h2>
+						<div class="info-post__text">
+							Миксин работает на основе значений переменных <span class="info-installation__bold">$minWidth, $maxWidth,
+								$maxWidthContainer, $containerPadding</span> и <span class="info-installation__bold">$containerWidth</span> расположеных в блоке <a class="info-installation__link" href="#">«Настройка
+								адаптивной сетки» </a> файла <span class="info-installation__bold">scss/style.scss</span>
+						</div>
+
+						<div class="info-post__text">
+							В итоге, по умолчанию, миксин будет работать следующим образом:
+						</div>
+
+						<div class="info-post__text">
+							Если <span class="info-installation__bold">$maxWidthContainer</span> больше нуля, то значения свойства будут
+							меняться в промежутке ширин от
+							<span class="info-installation__bold">$containerWidth</span> до <span class="info-installation__bold">$minWidth.</span> То есть, по всей ширине ограничивающего контейнера.
+						</div>
+
+						<div class="info-post__text">
+							При этом, если ширина экрана больше чем <span class="info-installation__bold">$containerWidth,</span> то
+							значение свойства будет равно <span class="info-installation__bold">начальному значению.</span> Если ширина
+							экрана меньше чем <span class="info-installation__bold">$minWidth</span>, то значение свойства будет равно
+							<span class="info-installation__bold">конечному значению.</span>
+						</div>
+
+						<div class="info-post__text">
+							Если <span class="info-installation__bold">$maxWidthContainer</span> равен нулю, то значения свойства будут
+							меняться в промежутке ширин от <span class="info-installation__bold">$maxWidth</span> до <span class="info-installation__bold">$minWidth.</span> То есть, по всей ширине экрана (вьюпорта).
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Дополнительные настройки и режимы работы</h2>
+						<div class="info-post__text">
+							Миксин позволяет указать свой промежуток ширины внутри которого будет адаптироваться значение свойства.
+						</div>
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"свойство"</span>, начальное значение, конечное значение, ширина от, ширина до)</span></span>; </code>
+						</div>
+						<ul class="info-content__list">
+							<li class="info-installation__item"><span class="info-installation__bold">ширина от</span> — CSS-свойство,
+								значение которого нужно адаптировать. Можно указать любое свойство значение которого указывается в
+								цифрах.</li>
+							<li class="info-installation__item"><span class="info-installation__bold">ширина до</span> —
+								— стартовая ширина меньше которой начнется адаптация, пишем число без px.</li>
+						</ul>
+						<div class="info-post__text">
+							<i>Пример:</i>
+						</div>
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"font-size"</span>, <span class="number">50</span>, <span class="number">20</span>, <span class="number">800</span>, <span class="number">480</span>)</span></span>;</code>
+						</div>
+						<div class="info-post__text">
+							При этом, работать миксин будет только в этом промежутке, а за его пределами значение свойства будет по
+							умолчанию либо наследоваться от предков.
+						</div>
+						<div class="info-post__text">
+							То есть, <span class="info-installation__bold">font-size</span> из примера получит значение <span class="info-installation__bold">50px</span> только на ширине <span class="info-installation__bold">800px</span> и будет адаптироваться до <span class="info-installation__bold">20px</span> до ширины <span class="info-installation__bold">480px.</span>
+							За пределами этого промежутка свойство унаследует значение по умолчанию.
+						</div>
+						<div class="info-post__text">
+							Это поведение миксина мы тоже можем настроить указав режим работы.
+						</div>
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"свойство"</span>, начальное значение, конечное значение, ширина от, ширина до, режим работы)</span></span>; </code>
+						</div>
+						<div class="info-post__text">
+							<span class="info-installation__bold">режим работы</span> — может принимать числовые значения <span class="info-installation__bold">1, 2</span> или <span class="info-installation__bold">3:</span>
+						</div>
+						<ul class="info-content__list">
+							<li class="info-installation__item"><span class="info-installation__bold">1</span> — Если ширина экрана
+								больше чем<span class="info-installation__bold"> ширина от,</span> то значение свойства будет равно <span class="info-installation__bold">начальному значению.</span> Если ширина экрана меньше чем <span class="info-installation__bold">ширина до,</span> то значение свойства будет равно <span class="info-installation__bold">конечному значению.</span>
+							</li>
+							<li class="info-installation__item"><span class="info-installation__bold">2</span> — Если ширина экрана
+								больше чем <span class="info-installation__bold">ширина от,</span> то значение свойства будет равно <span class="info-installation__bold">начальному значению.</span> Если ширина экрана меньше чем
+								<span class="info-installation__bold">ширина до,</span> то значение свойства будет по умолчанию либо
+								наследоваться от предков.
+							</li>
+							<li class="info-installation__item"><span class="info-installation__bold">2</span> — Если ширина экрана
+								больше чем <span class="info-installation__bold">ширина от,</span> то значение свойства будет по
+								умолчанию либо наследоваться от предков. Если ширина экрана меньше чем <span class="info-installation__bold">ширина до,</span> то значение свойства будет равно <span class="info-installation__bold">конечному значению.</span>
+							</li>
+						</ul>
+						<div class="info-post__text">
+							<i>Пример:</i>
+						</div>
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"font-size"</span>, <span class="number">50</span>, <span class="number">20</span>, <span class="number">800</span>, <span class="number">480</span>, <span class="number">1</span>)</span></span>;</code>
+						</div>
+						<div class="info-post__text">
+							Также мы можем использовать несколько вызовов миксина с разными промежутками:
+						</div>
+						<div class="info-installation__code">
+							<code class="css"><span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"font-size"</span>, <span class="number">50</span>, <span class="number">20</span>, <span class="number">800</span>, <span class="number">480</span>, <span class="number">2</span>)</span></span>; <br>
+								<span class="at_rule">@include <span class="function">adaptiveValue(<span class="string">"font-size"</span>, <span class="number">20</span>, <span class="number">10</span>, <span class="number">480</span>, <span class="number">320</span>)</span></span>;</code>
+						</div>
+						<div class="info-post__text">
+							В примере произойдет следующее: значение font-size будет 50px, в промежутке ширин экрана от 800px до 480px,
+							он будет отзывчиво адаптироваться от 50px до 20px. А в промежутке от 480px до 320px отзывчиво адаптироваться
+							от 20px до 10px.
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Расположение</h2>
+						<div class="info-post__text">
+							Миксин <span class="info-installation__bold">adaptiveValue</span> находится в файле <span class="info-installation__bold">scss/base/mixins.scss</span>
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="osnovnoj-fajl-stilej-style-scss-nastrojka-adaptivnoj-setki-i-prochee.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="menu-burger.html" class="template__next">Следующая страница >> </a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

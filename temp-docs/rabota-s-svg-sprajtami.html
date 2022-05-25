@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Работа с SVG спрайтами</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="sprite">
+				<div class="sprite__container">
+					<h1 class="installation__title">Работа с SVG-спрайтами</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						В шаблоне «Стартовом шаблоне есть возможность автоматически создавать SVG-спрайты.
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Создание SVG-спрайта</h2>
+						<div class="info-post__text">
+							Для этого следует скопировать отдельные SVG иконки в папку <span class="info-installation__bold">src/svgicons</span> (если такой папки нет, нужно её создать). Далее
+							запускаем команду в терминале <span class="info-installation__bold">npm run sprite</span>
+						</div>
+						<div class="info-installation__quote">
+							<div class="info-post__text">
+								Создавать SVG-спрайт следует <span class="info-installation__bold">до</span class="info-installation__bold"> вызова команды <span>npm run dev</span>
+							</div>
+						</div>
+
+						<div class="info-post__text">
+							После выполнения команды отдельные SVG иконки соберутся в единый файл (спрайт) <span class="info-installation__bold">simg/icons/icons.svg</span>
+						</div>
+
+						<div class="info-post__text">
+							Если набор отдельных иконок в папке <span class="info-installation__bold">src/svgicons</span> изменился,
+							следует повторить команду <span class="info-installation__bold">npm run sprite</span>
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Использование SVG-спрайта</h2>
+						<div class="info-post__text">
+							Каждой иконке в общем файле (спрайте) будет присвоен уникальный ID состоящий из строки <span class="info-installation__bold">svg-имя-файла-иконки.</span> Например, если имя файла отдельной иконки
+							было list.svg то ID будет svg-list. Следовательно, вывести необходимую иконку в нужном месте можно с помощью
+							кода:
+						</div>
+						<div class="info-installation__code">
+							<code class="xml"><span class="tag">&lt;<span class="title">svg</span>&gt;</span>
+								<span class="tag">&lt;<span class="title">use</span> <span class="attribute">xlink:href</span>=<span class="value">"img/icons/icons.svg#svg-list"</span>&gt;</span><span class="tag">&lt;/<span class="title">use</span>&gt;</span>
+								<span class="tag">&lt;/<span class="title">svg</span>&gt;</span></code>
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="rabota-so-shriftami.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="rabota-s-shablonizatorom-pug.html" class="template__next">Следующая страница >> </a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

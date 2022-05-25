@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль «Спойлеры»</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Модуль «Спойлеры»</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Спойлер — это заголовок, при клике на который под ним разворачивается некий контент.
+					</div>
+
+					<h2 class="info-installation__title">Основные возможности</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">Использование множества блоков со спойлерами</li>
+						<li class="info-installation__item">Отключение/включение функционала на определенной ширине экрана</li>
+						<li class="info-installation__item">Функция «аккордеон», когда в блоке может быть открыт только один спойлер
+						</li>
+						<li class="info-installation__item">Возможность анимированного открытия</li>
+						<li class="info-installation__item">Семантика</li>
+					</ul>
+					<h2 class="info-installation__title">Подключение функционала</h2>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[HTML]</span> В нужном месте вызвать <span class="info-installation__bold">сниппет spollers</span> (классы можно заменить на нужные).
+						Либо вручную создать структуру с соответствующими дата-атрибутами. Обратите внимание, что добавление класса
+						<span class="info-installation__bold">_spoller-active</span> для элемента с атрибутом <span class="info-installation__bold">data-spoller</span> сделает спойлер активным
+						(открытым).
+					</div>
+					<div class="info-post__text">
+						<i>Пример блока с двумя спойлерами:</i>
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">data-spoller</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>
+						Заголовок спойлера №1
+					<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера №1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">data-spoller</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>
+						Заголовок спойлера №2
+					<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера №2<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+			</pre>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span class="info-installation__bold"> В файле
+						<span>js/app.js</span> раскомментировать строку <span class="info-installation__bold">flsFunctions.spollers();</span>
+						<span class="info-installation__bold">[SCSS]</span> (не обязательно) Если вы хотите сразу посмотреть на работу
+						спойлеров и оставили классы предложенные
+						сниппетом, вы можете раскомментировать строку <span class="info-installation__bold">@import
+							«base/spollers»;</span> в файле <span class="info-installation__bold">src/scss/base.scss </span> — это
+						подключит базовые стили, их можно отредактировать под свои нужды.
+					</div>
+					<div class="info-post__text">
+						В момент инициализации (включения) функционала спойлера, контент будет скрыт, а к элементу с атрибутом
+						<span class="info-installation__bold">data-spollers</span> будет добавлен класс <span class="info-installation__bold">_spoller-init</span>
+					</div>
+
+					<h2 class="info-installation__title">Использование функционала</h2>
+					<h2 class="info-installation__title">Отключение/включение функционала на определенной ширине экрана</h2>
+					<div class="info-post__text">
+						Для того, чтобы отключить/включить функционал спойлера на определенной ширине экрана, необходимо для атрибута
+						<span class="info-installation__bold">data-spollers</span> через запятую указать нужную ширину экрана а также
+						тип:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item"><span class="info-installation__bold">max</span> (по умолчанию) —
+							функционал включится на ширине меньшей чем указанная
+						</li>
+						<li class="info-installation__item"><span class="info-installation__bold">min</span> — функционал включится на
+							ширине большей чем указанная</li>
+					</ul>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span>=<span class="value">"768,min"</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+				...
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+			</pre>
+
+
+					<h2 class="info-installation__title">Включение режима «аккордеон»</h2>
+					<div class="info-post__text">
+						Для того, чтобы включить режим «аккордеон», необходимо для элемента с атрибутом <span class="info-installation__bold">data-spollers</span> добавить атрибут <span class="info-installation__bold">data-one-spoller</span>
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">data-one-spoller</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+				...
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+			</pre>
+
+					<div class="info-post__text">
+						Теперь, при открытии спойлера, другой открытый спойлер в блоке будет закрываться
+					</div>
+
+					<h2 class="info-installation__title">Управление скоростью анимации</h2>
+					<div class="info-post__text">
+						Для того, чтобы управлять временем анимации открытия/закрытия спойлера, необходимо для элемента с атрибутом
+						<span class="info-installation__bold">data-spollers</span> добавить атрибут <span class="info-installation__bold">data-spollers-speed</span>, а в качестве значения указать время анимации в
+						миллисекундах (по умолчанию 500).
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">data-spollers-speed</span>=<span class="value">"1000"</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+				...
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+			</pre>
+
+					<h2 class="info-installation__title">Закрытие при клике вне спойлера</h2>
+					<div class="info-post__text">
+						Если необходимо закрывать спойлер(ы) при клике вне блока («на пустом месте»), то следует добавить нужному
+						заголовку(кам) атрибут <span class="info-installation__bold">data-spoller-close</span>
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">data-spoller</span> <span class="attribute">data-spoller-close</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>Заголовок спойлера<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+			</pre>
+					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+					<div class="info-post__text">
+						Функционал находится в <span class="info-installation__bold">js/files/functions.js.</span> Название функции
+						<span class="info-installation__bold">spollers()</span>
+					</div>
+
+					<h2 class="info-installation__title">Дополнительные материалы</h2>
+					<iframe width="100%" height="585" src="https://www.youtube.com/embed/0fg9bZcL1RM?list=PLM6XATa8CAG6IJvQBkrTTNZmpIcyS2Avk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="modul-taby.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="modul-lenivaya-podgruzka-lazy-loading.html" class="template__next">Следующая страница
+										>></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

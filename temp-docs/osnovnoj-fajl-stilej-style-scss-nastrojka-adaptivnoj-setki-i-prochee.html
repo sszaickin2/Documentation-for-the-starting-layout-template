@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>STYLE.SCSS — настройка адаптивной сетки, шрифтов, подключение дочерних файлов</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="style">
+				<div class="style__container">
+					<h1 class="installation__title">STYLE.SCSS — настройка адаптивной сетки, шрифтов, подключение дочерних файлов</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Файл <span>scss/style.scss</span> является основным файлом стилей в стартовом шаблоне. Обычно, стили проекта
+						тут не пишут, файл выполняет роль материнского файла куда подключаются отдельные файлы страниц, модулей и т.д.
+					</div>
+					<div class="info-post__text">
+						Тут же подключаются шрифты и расположены основные переменные для настройки семейства и размера шрифта по
+						умолчанию, цветов, адаптивной сетки, корректной работы миксинов и так далее…
+					</div>
+
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Настройка семейства, размера и цвета шрифта по умолчанию</h2>
+						<div class="info-installation__quote">
+							<div class="info-post__text">
+								Для того чтобы работать со шрифтами, сперва нужно их подключить. Все действия подробно описаны в
+								<a class="info-installation__link" href="fonts.html">этой статье.</a>
+							</div>
+						</div>
+						<div class="info-post__text">
+							<span class="info-installation__bold">$fontFamily</span> — имя семейства шрифта по умолчанию. Указываем имя
+							основного шрифта в проекте.
+						</div>
+						<div class="info-installation__code">
+							<code class="bash"><span class="variable">$fontFamily</span>: <span class="string">"Montserrat"</span>;</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$fontSize</span>— размер шрифта по умолчанию. Этой переменной
+							присвоена одна из SCSS-функций шаблона, она
+							выполняет перевод пикселей в REM. Соответственно, в эту функцию следует передать значение размера шрифта по
+							умолчанию в пикселях (только число без px).
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$fontFamily:</span>rem(14);</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$mainColor</span>— цвет шрифта по умолчанию. Указываем цветовой код.
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$fontFamily:</span>#000;</code>
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Настройка адаптивной сетки</h2>
+						<div class="info-post__text">
+							В Стратовом шаблоне есть возможность настроить ограничивающий контейнер на работу как с отзывчивой
+							адаптивной версткой, так и с версткой по брейкпоинтам.
+						</div>
+						<div class="info-post__text">
+							Перед началом работ, настраиваем следующие переменные:
+						</div>
+						<div class="info-post__text">
+							<span class="info-installation__bold">$minWidth</span> — минимальная ширина вьюпорта (экрана),
+							поддерживаемая проектом. Обычно это 320px, но, с отмиранием старых устройств, это значение можно менять на
+							любое нужное, указываем только число без px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$minWidth:</span> 320;</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$maxWidth</span> — ширина всего макета (полотна), не путать с шириной
+							ограничивающего контейнера. Как правило, дизайнеры предоставляют макеты шириной 1920 или 1440 пикселей, но
+							это значение может быть любым. Меряем макет и указываем только число без px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$maxWidth:</span>1920;</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$maxWidthContainer —</span>
+							ширина ограничивающего контейнера. Собственно, это ширина контента в макете дизайна. Меряем макет и
+							указываем только число без px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$maxWidthContainer:</span>1170;</code>
+						</div>
+
+						<div class="info-post__text">
+							Если в макете нет ограничения у контента, то есть контент расположен на всю ширину полотна (с отступами), то
+							следует указать значение <span class="info-installation__bold">0</span> (ноль):
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$maxWidthContainer:</span>0;</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$containerPadding</span>
+							— общий отступ (сумма отступов слева и справа) у ограничивающего контейнера. Указываем только число без px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$containerPadding:</span>30;</code>
+						</div>
+
+						<div class="info-post__text">
+							Если отступов нет, либо вы хотите использовать адаптивное свойство, следует указать <span class="info-installation__bold">0</span> (ноль):
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$containerPadding:</span>0;</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$containerWidth</span>
+							— ширина срабатывания первого брейкпоинта. Собственно, это сумма ширин ограничивающего контейнера и его
+							отступов. Как правило, менять тут ничего не нужно.
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$containerWidth: $maxWidthContainer + $containerPadding;</span></code>
+						</div>
+
+						<div class="info-installation__quote">
+							<div class="info-post__text">
+								Вышеуказанные переменные влияют и на функционал отзывчивого свойства, который описан в отдельной статье
+							</div>
+						</div>
+
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Настройка брейкпоинтов</h2>
+						<div class="info-post__text">
+							Переменным брейпоинтов присвоена одна из SCSS-функций шаблона <span class="info-installation__bold">em()</span>, она выполняют перевод пикселей в EM.
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$pc</span> — ПК, ноутбуки, некоторые планшеты в горизонтальном
+							положении. Обычно, тут указывается переменная <span class="info-installation__bold">$containerWidth:</span>
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$pc:</span> em(<span class="tag">containerWidth</span>);</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$tablet </span> — планшеты, некоторые телефоны в горизонтальном
+							положении. Обычно, значение равно 991.98px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$tablet</span>: em(991.98);</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$mobile </span> — большие телефоны. Обычно, значение равно 767.98px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$mobile</span>: em(767.98);</code>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">$mobileSmall </span> — маленькие телефоны. Обычно, значение равно
+							479.98px:
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$mobileSmall</span>: em(479.98);</code>
+						</div>
+
+						<div class="info-installation__quote">
+							<div class="info-post__text">
+								Для быстрого вызова медиа запроса с нужным брейкпоинтом можно использовать <a class="info-installation__link" href="#">сниппеты</a> md1, md2, md3, md4. Или, для Mobile First, mmd1,
+								mmd2, mmd3, mmd4
+							</div>
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Настройка типа адаптива (поведения ограничивающего контейнера)</h2>
+						<div class="info-post__text">
+							<span class="info-installation__bold">$responsiveType </span>
+							— настройка типа адаптива (поведения ограничивающего контейнера):
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">1</span> — отзывчивость. У контейнера нет брейкпоинтов, он сужается
+							вместе с браузером
+							<span class="info-installation__bold">2</span> — по брейкпоинтам. Контейнер меняет свою ширину по
+							настроенным брейкпоинтам
+						</div>
+
+						<div class="info-installation__code">
+							<code><span class="tag">$responsiveType:</span> 1;</code>
+						</div>
+
+						<div class="info-post__text">
+							Стили ограничивающего контейнера будут применяться к любому элементу в классе которого есть строка
+							<span class="info-installation__bold">«__container».</span>Для удобства можно использовать
+							<a class="info-installation__link" href="#">сниппет</a>
+							<span class="info-installation__bold">cnt</span>
+						</div>
+
+						<div class="info-installation__code">
+							<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"block__container"</span>&gt;</span>
+								...
+								<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+						</div>
+
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Подключение дополнительных файлов стилей</h2>
+
+						<div class="info-installation__quote">
+							<div class="info-post__text">
+								В файл <span class="info-installation__bold">scss/style.scss</span> уже подключены и можно подключать
+								прочие файлы стилей. Порядок подключения имеет значение!
+							</div>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">@use «sass:math»;</span>
+							— подключает SASS-модуль математических вычислений. Теперь мы можем использовать деление с помощью
+							math.div(число, число).
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">@import «base/mixins»; </span>
+							— подключение используемых в ЧФ миксинов. Файл scss/base/mixins.scss.
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">@import «base»; </span>
+							— подключение общего файла базовых стилей модулей ЧФ, SASS-шаблонов (заготовок) и вспомогательных классов.
+							Файл scss/base.scss. Для подключения/отключения конкретных стилей смотри scss/base.scss.
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">@import «common»;</span>
+							— подключение файла стилей общих элементов конкретного проекта. Файл scss/common.scss (изначально пуст).
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">@import «header»; , @import «footer»;</span>
+							— подключение стилей отдельных блоков (изначально scss/header.scss и scss/footer.scss ). Вы можете дополнять
+							список подключением своих файлов
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">@import «home»; </span>
+							— подключение стилей отдельных страниц (изначально scss/home.scss). Вы можете дополнять список подключением
+							своих файлов
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Селекторы и стили</h2>
+
+						<div class="info-installation__quote">
+							<div class="info-post__text">
+								Изначально в файле стилей <span class="info-installation__bold">scss/style.scss</span> есть ряд
+								SCSS-селекторов:
+							</div>
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">body {}</span>
+							— стили основного тега
+
+							<body> часть из которых описана в файле обнуления scss/base/null.scss. Также добавлена подготовка для
+								появления у тега <html> двух классов:
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">lock </span>
+							— блокировка скролла. Для этого уже написаны соответствующие CSS-стили
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">loaded</span>
+							— сайт загружен. По этому классу мы можем влиять на
+
+							<body> для отображения контента после полной загрузки данных
+						</div>
+
+						<div class="info-post__text">
+							<span class="info-installation__bold">.wrapper {}</span>
+							— обвертка всего контента на странице. Для неё написаны стили прижатия подвала к низу страницы, важный
+							параметр overflow: hidden; который не даст появиться горизонтальному скроллу страницы, а также решение
+							проблемы для слайдеров внутри дочерних flex-элементов.
+						</div>
+
+					</div>
+					<!-- ==============================================================================================-->
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="rabota-s-shablonizatorom-pug.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="scss-miksin-otzyvchivoe-svojstvo.html" class="template__next">Следующая страница >> </a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

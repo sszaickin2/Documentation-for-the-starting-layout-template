@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль формы «Колличество»</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Модуль формы «Колличество»</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Модуль представляет собой готовый блок для выбора количества (например товара в интернет-магазине).
+					</div>
+					<h2 class="info-installation__title">Подключение модуля</h2>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[HTML]</span> В нужном месте вызвать <span class="info-installation__bold">сниппет quantity</span>. Будет построена структура модуля с кнопками и полем
+						ввода. Классы и структуру можно менять под сои нужды. В атрибуте <span class="info-installation__bold">value</span> указываем начальное значение количества.
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-quantity</span> <span class="attribute">class</span>=<span class="value">"quantity"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-quantity-plus</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"quantity__button quantity__button_plus"</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"quantity__input"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">input</span> <span class="attribute">data-quantity-value</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">""</span> <span class="attribute">value</span>=<span class="value">"1"</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-quantity-minus</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"quantity__button quantity__button_minus"</span>&gt;</span><span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+		</pre>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[SCSS]</span> (не обязательно) Если вы хотите сразу посмотреть на работу
+						блока и оставили классы предложенные сниппетом, вы можете раскомментировать строку <span class="info-installation__bold">@import «quantity»;</span> в файле <span class="info-installation__bold">src/scss/base/forms/forms.scss</span> — это подключит базовые стили, их
+						можно отредактировать под свои нужды.
+					</div>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span class="info-installation__bold">flsForms.formQuantity();</span>
+					</div>
+					<h2 class="info-installation__title">Дополнительные параметры</h2>
+					<div class="info-post__text">
+						К элементу "INPUT" можно добавить дополнительные настройки:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item"><span class="info-installation__bold">data-quantity-max=’число’</span>
+							установит максимальное значение поля</li>
+						<li class="info-installation__item"><span class="info-installation__bold">data-quantity-min=’число’</span>
+							установит минимальное значение поля</li>
+					</ul>
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="modul-raboty-s-kalendarem-js-datepicker.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="otpravka-pisma-na-pochtu-phpmailer.html" class="template__next">Следующая страница >></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

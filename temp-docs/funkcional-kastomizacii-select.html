@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль кастомизации элемента SELECT</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Модуль кастомизации элемента SELECT</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Модуль позволяет как угодно стилизовать стандартный элемент форы SELECT и его пункты OPTION, а также реализует
+						дополнительные возможности.
+					</div>
+					<h2 class="info-installation__title">Подключение модуля</h2>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[HTML]</span> В нужном месте вызвать <span class="info-installation__bold">сниппет sel</span>, отредактировать HTML-код селекта под свои нужды <br>
+						<span class="info-installation__bold">[SCSS]</span> Раскомментировать строку <span class="info-installation__bold">@import «select»;</span> в файле <span>src/scss/base/forms/forms.scss</span>
+						— это подключит
+						базовые стили селекта, отредактировать под свои нужды
+						<span class="info-installation__bold">[JS] </span>Раскомментировать строку <span class="info-installation__bold">import ‘./libs/select.js’</span> в файле <span class="info-installation__bold">js/app.js</span>
+					</div>
+					<h2 class="info-installation__title">Настройки и функционал модуля</h2>
+					<div class="info-post__text">
+						Для подключения того или иного функционала модуля используются различные HTML-атрибуты
+					</div>
+					<h2 class="info-installation__title">Атрибуты для тега "SELECT":</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">multiple</span> — мультивыбор
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">disabled</span> — недоступен
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-class-modif=имя класса</span> — модификатор к конкретному
+							селекту. В итоге получится select select_имя класса
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-tags</span> — режим тегов (только для multiple), позволяет
+							вставлять выбранные значения в виде тегов с крестиком для удаления. Также есть возможность выводить эти теги
+							в любом указанном месте, указав селектор блока в качестве значения атрибута
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-scroll</span> — включит прокрутку для выпадающего списка,
+							дополнительно можно подключить кастомный скролл simplebar в js/app.js. Указанное число для атрибута
+							ограничит высоту контейнера выпадающего списка
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-checkbox</span> (в работе) — стилизация элементов по checkbox
+							(только для multiple)
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-show-selected</span> — отключает скрытие выбранного элемента
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-search</span> — позволяет искать по выпадающему списку
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-speed</span> — позволяет указать скорость открытия/закрытия
+							списка в миллисекундах, по умолчанию 150
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-open</span> — селект открыт сразу
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-submit</span> — отправляет форму при изменении селекта
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-pseudo-label=заголовок</span> — добавляет псевдоэлемент к
+							заголовку селекта с указанным текстом, а также класс <span class="info-installation__bold">_select-pseudo-label</span>
+						</li>
+					</ul>
+
+					<h2 class="info-installation__title">Атрибуты для тега "OPTION":</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-class=имя класса </span> — добавляет класс
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-asset=путь к картинке или текст</span> — добавляет в элемент
+							списка структуру двух колонок с указанными данными
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-href=адрес ссылки</span> — добавляет ссылку в элемент списка
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-href-blank</span> — откроет ссылку в новом окне
+						</li>
+					</ul>
+
+					<h2 class="info-installation__title">Атрибуты для для плейсхолдера (плейсхолдер — это "OPTION" с пустым value)
+					</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-label</span> — добавляет label к селекту
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-show</span> — показывает плейсхолдер в списке (только для
+							единичного выбора)
+						</li>
+					</ul>
+
+					<h2 class="info-installation__title">Атрибуты для прочих элементов
+					</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-one-select</span> — селекты внутри объекта с этим атрибутом будут
+							открываться только по одному. То есть при открытии селекта другой открытый селект закрывается.
+						</li>
+					</ul>
+
+					<h2 class="info-installation__title">Пример селекта с некоторыми атрибутами</h2>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">data-submit</span> <span class="attribute">data-scroll</span> <span class="attribute">name</span>=<span class="value">"form[]"</span> <span class="attribute">data-class-modif</span>=<span class="value">"form"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">""</span> <span class="attribute">selected</span>&gt;</span>Плейсхолдер<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"2"</span>&gt;</span>Пункт<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">option</span> <span class="attribute">data-href</span>=<span class="value">"about.html"</span> <span class="attribute">value</span>=<span class="value">"3"</span>&gt;</span>Пункт ссылка<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"4"</span>&gt;</span>Пункт<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">select</span>&gt;</span></code>
+		</pre>
+
+
+					<h2 class="info-installation__title">Классы которые формируются модулем</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							select — Главный блок
+						</li>
+						<li class="info-installation__item">
+							select__body — Тело селекта
+						</li>
+						<li class="info-installation__item">
+							select__title — Заголовок
+						</li>
+						<li class="info-installation__item">
+							select__value — Значение в заголовке
+						</li>
+						<li class="info-installation__item">
+							select__label — Лейбл
+						</li>
+						<li class="info-installation__item">
+							select__input — Поле ввода
+						</li>
+						<li class="info-installation__item">
+							select__text — Оболочка текстовых данных
+						</li>
+						<li class="info-installation__item">
+							select__link — Ссылка в элементе
+						</li>
+						<li class="info-installation__item">
+							select__options — Выпадающий список
+						</li>
+						<li class="info-installation__item">
+							select__scroll — Оболочка при скролле
+						</li>
+						<li class="info-installation__item">
+							select__option — Пункт
+						</li>
+						<li class="info-installation__item">
+							select__content — Оболочка контента в заголовке
+						</li>
+						<li class="info-installation__item">
+							select__row — Ряд
+						</li>
+						<li class="info-installation__item">
+							select__asset — Дополнительные данные
+						</li>
+						<li class="info-installation__item">
+							_select-disabled — Запрещен
+						</li>
+						<li class="info-installation__item">
+							_select-tag — Класс тега
+						</li>
+						<li class="info-installation__item">
+							_select-open — Список открыт
+						</li>
+						<li class="info-installation__item">
+							_select-active — Список выбран
+						</li>
+						<li class="info-installation__item">
+							_select-focus — Список в фокусе
+						</li>
+						<li class="info-installation__item">
+							_select-multiple — Мультивыбор
+						</li>
+						<li class="info-installation__item">
+							_select-checkbox — Стиль чекбокса
+						</li>
+						<li class="info-installation__item">
+							_select-selected — Выбранный пункт
+						</li>
+						<li class="info-installation__item">
+							_select-pseudo-label — Псевдолейбл для заголовка селекта
+						</li>
+					</ul>
+					<h2 class="info-installation__title">События</h2>
+					<div class="info-post__text">
+						После каждого выбора элементы селекта срабатывает событие <span class="info-installation__bold">selectCallback</span>, его можно отловить в любой части кода:
+					</div>
+					<pre class="info-installation__code">			<code class="javascript">document.addEventListener(<span class="string">"selectCallback"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+			<span class="comment">// Селект </span>
+			<span class="keyword">const</span> currentSelect = e.detail.select;
+		});</code>
+		</pre>
+
+					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+					<div class="info-post__text">
+						Класс <span class="info-installation__bold">SelectConstructor</span> находится в файле <span class="info-installation__bold">js/libs/select.js</span>
+					</div>
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="rabota-s-formami.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="modul-galereya.html" class="template__next">Следующая страница
+										>></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

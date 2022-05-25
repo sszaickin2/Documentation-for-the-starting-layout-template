@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Работа с формами и элементами форм</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Работа с формами и элементами форм</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						В <a class="info-installation__link" href="#">Стартовом шаблоне</a> реализован функционал помогающий решать
+						различные
+						рутинные задачи при работе с формами.
+					</div>
+					<div class="info-installation__help">
+						<div class="info-installation__text">
+							В этом документе описан общий функционал работы с полями, плейсхолдерами, валидацией, вариантами отправки
+							форм и т.д. В отдельных разделах будет описан функционал конкретных элементов форм, таких как:
+						</div>
+					</div>
+
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<a class="info-installation__link" href="#">Отправка писем на почту (PHPMailer)</a>
+						</li>
+						<li class="info-installation__item">
+							<a class="info-installation__link" href="#">Кастомизация элемента SELECT</a>
+						</li>
+						<li class="info-installation__item">
+							Кастомизация (стилизация) элементов CHECKBOX и RADIO
+						</li>
+						<li class="info-installation__item">
+							Модуль «Маски» для полей ввода
+						</li>
+						<li class="info-installation__item">
+							Модуль «Звездный рейтинг»
+						</li>
+						<li class="info-installation__item">
+							<a class="info-installation__link" href="#">Модуль «Колличество»</a>
+						</li>
+						<li class="info-installation__item">
+							Модуль «Range» (ползунок)
+						</li>
+					</ul>
+					<h2 class="info-installation__title">Работа с полями форм</h2>
+					<div class="info-post__text">
+						Работа с полями форм подразумевает под собой следующий функционал:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							Скрытие placeholder при фокусе
+						</li>
+						<li class="info-installation__item">
+							Добавление классов полю и его родителю при фокусе
+						</li>
+						<li class="info-installation__item">
+							Функционал «Показать пароль» для полей с типом password
+						</li>
+						<li class="info-installation__item">
+							Возможность моментальной валидации поля при потере фокуса
+						</li>
+					</ul>
+					<div class="info-post__text">
+						Для того чтобы подключить общий функционал для работы с полями форм необходимо расскоментировать функцию <span class="info-installation__bold">flsForms.formFieldsInit({…})</span> в файле <span class="info-installation__bold">js/app.js:</span>
+					</div>
+					<pre class="info-installation__code">
+			<code class="css"><span class="tag">flsForms</span><span class="class">.formFieldsInit</span>(<span class="rules">{
+				<span class="rule"><span class="attribute">viewPass</span>:<span class="value"> false,
+				autoHeight: false
+			}</span></span></span>);</code>
+		</pre>
+					<div class="info-post__text">
+						Передавать функции можно следующие параметры:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">viewPass</span> — позволяет включить функционал «Показать пароль» .
+							true — включено, false — выключено (по умолчанию).
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">autoHeight</span> — позволяет включить функционал «Автовысота» для
+							textarea . true — включено, false — выключено (по умолчанию).
+						</li>
+					</ul>
+					<h2 class="info-installation__title">Работа с атрибутом placeholder</h2>
+					<div class="info-post__text">
+						По умолчанию, после подключения <span class="info-installation__bold">flsForms.formFieldsInit({…})</span>,
+						значение добавленного полю HTML-атрибута <span class="info-installation__bold">placeholder</span> скопируется в
+						созданный скриптом атрибут <span class="info-installation__bold">data-placeholder</span>, что позволит скрывать
+						плейсхолдер при фокусе на поле. Если нам нужно отключить скрытие для конкретного поля, ему следует добавить
+						атрибут <span class="info-installation__bold">data-placeholder-nohide</span>
+					</div>
+					<h2 class="info-installation__title">Добавление классов</h2>
+					<div class="info-post__text">
+						По умолчанию, после подключения <span class="info-installation__bold">flsForms.formFieldsInit({…})</span>, при
+						возникновении фокуса, к полю а также к его непосредственному родительскому элементу, добавится класс <span class="info-installation__bold">_form-focus</span>. Если нам нужно отключить добавление классов для
+						конкретного поля, ему следует добавить атрибут <span class="info-installation__bold">data-no-focus-classes</span>
+					</div>
+					<h2 class="info-installation__title">Валидация поля при потере фокуса</h2>
+					<div class="info-post__text">
+						Для того чтобы скрипт начал вызывать <a class="info-installation__link" href="rabota-s-formami.html">функционал
+							валидации</a> поля
+						в момент потери им фокуса, следует добавить полю атрибут <span class="info-installation__bold">data-validate.</span>
+					</div>
+					<div class="info-post__text">
+						Стоит добавить, что функционал работы с полями форм также удалит ошибку добавленную к полю валидатором при
+						получении им фокуса. Подробнее о функционале валидации полей смотри далее в этом документе.
+					</div>
+					<h2 class="info-installation__title">Функционал «Показать пароль»</h2>
+					<div class="info-post__text">
+						Функционал «Показать пароль», позволяет отображать зашифрованное значение поля с типом password при клике на
+						объект с классом содержащим строку «__viewpass» который находится вместе с полем в одном родителе:
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form__line"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">input</span> <span class="attribute">autocomplete</span>=<span class="value">"off"</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">name</span>=<span class="value">"form[]"</span> <span class="attribute">value</span>=<span class="value">"123456"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"form__viewpass"</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Показать пароль<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">class</span>=<span class="value">"button"</span>&gt;</span>Отправить<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code>
+		</pre>
+
+					<div class="info-post__text">
+						В момент клика на объект с классом содержащим строку «__viewpass» в нему добавляется класс <span class="info-installation__bold">_viewpass-active</span>, а тип поля ввода меняется на text. Повторное
+						нажатие выполнит обратные действия.
+					</div>
+					<div class="info-post__text">
+						Напомню, для того чтобы включить функционал «Показать пароль» следует указать <span class="info-installation__bold">true</span> для параметра <span class="info-installation__bold">viewPass</span> при подключении функционала в файле <span class="info-installation__bold">js/app.js</span>.
+					</div>
+
+					<h2 class="info-installation__title">Функционал «Автовысота» для textarea</h2>
+					<div class="info-post__text">
+						Функционал «Автовысота» позволяет элементу textarea автоматически подстраиваться по высоте под вводимый текст.
+					</div>
+					<div class="info-post__text">
+						Для включения необходимо назнать <span class="info-installation__bold">true</span> для параметра <span class="info-installation__bold">autoHeight</span>, а также добавить атрибут <span class="info-installation__bold">data-autoheight</span> элементe(ам) textarea.
+					</div>
+					<div class="info-installation__code">
+						<code class="xml"><span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">name</span>=<span class="value">"message"</span> <span class="attribute">data-autoheight</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></code>
+					</div>
+					<div class="info-post__text">
+						Дополнительно можно указать следующие параметры:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-autoheight-min=’число’</span> — минимальная (стартовая) высота
+							textarea
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-autoheight-max=’число’</span> — максимальная высота textarea
+						</li>
+					</ul>
+
+					<h2 class="info-installation__title">Валидация элементов форм</h2>
+					<div class="info-post__text">
+						Для того чтобы элемент формы начал проходить валидацию, ему следует добавить атрибут <span class="info-installation__bold">data-required</span>. Теперь при отправке формы, а также если элементу
+						добавлен атрибут <span class="info-installation__bold">data-validate</span>, он будет проверяться на предмет
+						верного заполнения.
+					</div>
+					<div class="info-post__text">
+						Для того чтобы включить особые правила валидации поля, атрибуту следует добавить одно из значений:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">email</span> — включит валидацию на ввод корретного E-mail
+						</li>
+						<li class="info-installation__item">
+							идет работа над новыми пресетами
+						</li>
+					</ul>
+					<div class="info-post__text">
+						<i>Пример:</i>
+					</div>
+					<div class="info-installation__code">
+						<code class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">data-required</span>=<span class="value">"email"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"form[]"</span>&gt;</span></code>
+					</div>
+					<div class="info-post__text">
+						Если элемент заполнен не верно, к нему, а также к его родителю добавится класс _form-error. Если мы хотим
+						дополнительно вывести произвольный текст ошибки, нам следует указать его в атрибуте data-error и добавить к
+						полю:
+					</div>
+					<div class="info-installation__code">
+						<code class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">data-error</span>=<span class="value">"Введен не верный E-mail"</span> <span class="attribute">data-required</span>=<span class="value">"email"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"form[]"</span>&gt;</span></code>
+					</div>
+					<div class="info-post__text">
+						Теперь, при возникновении ошибки валидации, под элементом добавится объект с классом form__error содержащий ваш
+						текст ошибки.
+					</div>
+					<div class="info-post__text">
+						Напомню, что функционал работы с полями удалит классы ошибок и объект с классом form__error при получении полем
+						фокуса.
+					</div>
+					<div class="info-installation__quote">
+						<div class="info-installation__text">Для отключения валидации элементов конкретной формы, ей следует добавить
+							атрибут <span class="info-installation__bold">data-no-validate</span></div>
+					</div>
+					<h2 class="info-installation__title">Отправка форм</h2>
+					<div class="info-post__text">
+						Для включения функционала следует расскоментировать функцию <span class="info-installation__bold">flsForms.formSubmit();</span> в файле <span class="info-installation__bold">js/app.js</span>
+					</div>
+
+					<h2 class="info-installation__title">Валидация элементов формы</h2>
+					<div class="info-post__text">
+						По умолчанию, при отправке формы, поля отмеченные <span class="info-installation__bold">data-required/data-required=’…’</span> будут проходить валидацию. Для
+						отключения валидации элементов конкретной формы, ей следует добавить атрибут <span class="info-installation__bold">data-no-validate</span>
+					</div>
+					<h2 class="info-installation__title">Режимы отправки формы</h2>
+					<div class="info-post__text">
+						В шаблоне существует несколько режимов контроля отправки форм:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">Стандартная HTML отправка формы</span> (по умолчанию) — если валидация
+							пройдена (была включена), форма отправится на указанный в атрибуте action адрес (с переходом страницы),
+							методом указанным в атрибуте method.
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">AJAX отправка формы</span> — если валидация пройдена (была включена),
+							форма отправится AJAX запросом на указанный в атрибуте action адрес, методом указанным в атрибуте method.
+							Страница не перезагрузится, все элементы формы вернутся к исходных значениям (очистка формы).
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">Режим имитации отправки формы</span> — если валидация пройдена (была
+							включена), форма никуда не отправится, страница не перезагрузится, все элементы формы вернутся к исходных
+							значениям (очистка формы). Используется для демонстрации работы дополнительных возможностей форм, таких как,
+							например, показ попапа об успешной отправке.
+						</li>
+					</ul>
+					<div class="info-installation__quote">
+						Для включения режима <span class="info-installation__bold">AJAX отправки</span> достаточно добавить форме
+						атрибут <span class="info-installation__bold">data-ajax</span>, а если нужен режим <span class="info-installation__bold">имитации отправки</span> добавляем атрибут <span class="info-installation__bold">data-dev.</span>
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">data-ajax</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">method</span>=<span class="value">"POST"</span> <span class="attribute">action</span>=<span class="value">"sendmail.php"</span>&gt;</span>
+				...
+			<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code>
+		</pre>
+
+					<h2 class="info-installation__title">Прокрутка к элементу с ошибкой</h2>
+					<div class="info-post__text">
+						Бывает, что форма очень большая и, при возникновении ошибки валидации, хорошо бы показать элемент с ошибкой
+						пользователю. Для этих целей есть функционал «прокрутка к элементу с ошибкой». Для включения, достаточно
+						добавить форме атрибут <span class="info-installation__bold">data-goto-error</span>
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">data-goto-error</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span>
+				...
+			<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code>
+		</pre>
+					<h2 class="info-installation__title">Показ попапа после отправки формы</h2>
+					<div class="info-post__text">
+						Если необходимо, после отправки формы, показать попап добавляем к форме атрибут data-popup-message и в качестве
+						значения указываем селектор попапа
+					</div>
+					<div class="info-installation__quote">
+						Только для режимов <span class="info-installation__bold">data-ajax</span> или <span class="info-installation__bold">data-dev</span>. <a class="info-installation__link" href="modal.html">Функционал попапов</a> также должен быть подключен
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">data-dev</span> <span class="attribute">data-popup-message</span>=<span class="value">"#form-message"</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span>
+				...
+			<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code>
+		</pre>
+					<h2 class="info-installation__title">События</h2>
+					<div class="info-post__text">
+						После каждой отправки формы срабатывает событие <span class="info-installation__bold">formSent</span>, его
+						можно отловить в любой части кода:
+					</div>
+					<pre class="info-installation__code">
+			<code class="javascript">document.addEventListener(<span class="string">"formSent"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+				<span class="comment">// Форма</span>
+				<span class="keyword">const</span> currentForm= e.detail.form;
+			});</code>
+		</pre>
+					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+					<div class="info-post__text">
+						Функции <span class="info-installation__bold">formFieldsInit(), formSubmit()</span> а также объект <span class="info-installation__bold">formValidate</span> находятся в файле <span class="info-installation__bold">js/files/forms/form.js</span>
+					</div>
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="rabota-so-slajderom-swiper.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="funkcional-kastomizacii-select.html" class="template__next">Следующая страница
+										>></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

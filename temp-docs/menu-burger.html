@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль меню «бургер»</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="menu-block">
+				<div class="menu-block__container">
+					<h1 class="installation__title">Модуль меню «бургер»</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Функционал реагирует на клик по кнопке меню «бургера» (элемент с классом icon-menu). При этом к тегу html
+						добавляется класс <span class="info-installation__bold">menu-open,</span> а также срабатывает блокировка
+						прокрутки страницы (функция <span class="info-installation__bold">bodyLockToggle()).</span> При повторном клике
+						происходят обратные действия.
+					</div>
+
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Подключение модуля</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								<span class="info-installation__bold">[HTML]</span> Вызывать сниппет <span class="info-installation__bold">menu</span>, отредактировать под задачу. Важно чтобы кнопка
+								бургера оставалась с классом
+								<span class="info-installation__bold">icon-menu</span>
+							</li>
+							<li class="info-installation__item">
+								<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку
+								<span class="info-installation__bold">flsFunctions.menuInit();</span>
+							</li>
+							<li class="info-installation__item">
+								<span class="info-installation__bold">[SCSS]</span> По классу <span class="info-installation__bold">menu-open</span> верстаем открытие самого меню (объект с классом
+								<span class="info-installation__bold">menu__body).</span> В файле
+								<span class="info-installation__bold">scss/header.scss</span> есть закомментированный стиль кнопки
+								бургера.
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+						<div class="info-post__text">
+							Функционал находится в <span class="info-installation__bold">js/files/functions.js.</span> Название функции
+							<span class="info-installation__bold">menuInit(),</span> дополнительные функции <span class="info-installation__bold">menuOpen()</span> и <span class="info-installation__bold">menuClose()</span> для открытия/закрытия меню из произвольного кода. Все
+							функции импортируемые.
+						</div>
+					</div>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Дополнительные материалы</h2>
+						<iframe width="100%" height="585" src="https://www.youtube.com/embed/zs1r8yafTE8?list=PLM6XATa8CAG6IJvQBkrTTNZmpIcyS2Avk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<!-- ==============================================================================================-->
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="scss-miksin-otzyvchivoe-svojstvo.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="funkcional-popup.html" class="template__next">Следующая страница >> </a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

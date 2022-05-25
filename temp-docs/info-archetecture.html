@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Установка и запуск шаблона</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="archetecture">
+				<div class="arcetecture__container">
+					<h1 class="installation__title">Архитектура шаблона. <br> Файлы и папки</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<p class="installation__body">В этой главе поговорим об архитектуре, иерархии папок и файлов,
+						<a class="info-installation__link" href="#">Стартового шаблона</a>
+					</p>
+					<!-- ==============================================================================================-->
+					<div class="info-content__block">
+						<h2 class="info-installation__title">Разархивировав скачанный шаблон, в корне вы обнаружите следующие файлы и
+							папки:</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">package.json</span>
+								— файл содержащий команды запуска сборщиков, информацию об установленных плагинах и их версиях
+								(можно
+								редактировать при необходимости). А также прочую информацию о об авторе и версии шаблона.
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">
+									gulpfile.js
+								</span>
+								— главный файл сборщика GULP. Содержит подключения различных задач и сценарии их выполнения (можно
+								редактировать при необходимости)
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">snnipets.txt</span>
+								файл со сниппетами которые используются при работе с шаблоном. Как их добавить в свой редактор
+								<a href="installation-template.html#snipets" class="info-installation__link">описано тут</a>
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">README.txt</span>
+								краткая информация по работе с шаблоном
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">config</span>
+								содержит папки и файлы для настройки работы сборщиков, а также файлы с отдельными задачами.
+								<a data-goto="#config" data-goto-header data-goto-speed="1000" class="info-installation__link" href="">подробнее…</a>
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">src</span>
+								содержит папки и файлы для настройки работы сборщиков, а также файлы с отдельными задачами.
+								содержит исходные файлы и папки проекта.
+								<a data-goto="#src" data-goto-header data-goto-speed="1000" class="info-installation__link" href="">подробнее…</a>
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div id="config" class="info-content__block">
+						<h2 class="info-installation__title">Содержимое папки config:</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">gulp-settings.js</span>
+								— содержит настройку путей к файлам и папкам для работы GULP, а также настройку FTP соединения для
+								выгрузки
+								результата на сервер
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">
+									gulp-plugins.js
+								</span>
+								— вспомогательный файл, содержит подключение и экспорт списка общих плагинов для задач GULP
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">webpack.dev.js </span>
+								— содержит конфигурацию работы WEBPACK в режиме разработчик
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">webpack.prod.js</span>
+								— содержит конфигурацию работы WEBPACK в режиме продакшн
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">gulp-tasks</span>
+								— содержит файлы отдельных задач GULP
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div id="src" class="info-content__block">
+						<h2 class="info-installation__title">Содержимое папки src:</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">favicon.ico</span>
+								— иконка сайта
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">
+									index.html
+								</span>
+								— индексная страница-содержание, она не обновляется автоматически при редактировании (при желании
+								удалить)
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">files</span>
+								(пустая) — все файлы из этой папки будут скопированы в папку с результатом (dist/files)
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">fonts</span>
+								(пустая) — используется для
+								<a class="info-installation__link" href="fonts.html">подключения локальных и иконочных шрифтов</a>
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">svgicons</span>
+								(пустая) — используется для создания SVG спрайта
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">html</span>
+								— содержит .HTM файлы, которые подключаются в HTML файлы страниц (например в home.html). Тут можно
+								создавать
+								свои подключаемые файлы
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">scss </span>
+								— содержит файлы и папки стилей сайта
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">js</span>
+								— содержит файлы и папки скриптов сайта
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">img </span>
+								— тут хранятся картинки проекта. Изначально, только кавер-фото шаблона
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div id="src" class="info-content__block">
+						<h2 class="info-installation__title">Содержимое папки src/html:</h2>
+						<p class="info-installation__text">Файлы из этой папки предназначены для подключения в HTML-файлы страниц.</p>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">_header.htm</span>
+								— подготовка для создания шапки сайта. Содержит тег <header> и ограничивающий контейнер. Изначально
+									подключен
+									в home.html
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">
+									_footer.htm
+								</span>
+								— подготовка для создания подвала сайта. Содержит тег <span class="tag">footer</span> и ограничивающий
+								контейнер. Изначально подключен в index.html
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">_head.htm</span>
+								— содержит тег
+
+								<span class="tag">head</span> внутри которого указаны метатеги, подключена иконка сайта, файл стилей а
+								также
+								тег <span class="tag">title</span> с
+								переменной-заголовком. Изначально подключен в index.html
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">_js.htm</span>
+								— предназначен для подключения общих js-файлов. Содержит подключение основного файла js/app.min.js из
+								результата. Изначально подключен в index.html
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">_popup.htm</span>
+								— подготовка для создания попапов. Содержит шаблонный, закомментированный HTML-код. Изначально подключен
+								в
+								home.html.
+								<a class="info-installation__link" href="#">Смотри работу с попапами</a>
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">_pagging.htm</span>
+								— подготовка для создания блока постраничной навигации. Содержит шаблонный HTML-код.
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div id="src" class="info-content__block">
+						<h2 class="info-installation__title">Содержимое папки src/scss:</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">style.scss</span>
+								— основной файл стилей. Содержит различные настройки и подключения других файлов.
+								<a class="info-installation__link" href="#">Подробнее</a>
+
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">
+									header.scss
+								</span>
+								— файл стилей шапки сайта. Содержит закомментированный код
+								<a class="info-installation__link" href="#">кнопки меню-бургера.</a>
+								Изначально подключен в connection.scss
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">footer.scss</span>
+								— файл стилей подвала сайта. Изначально пуст и подключен в connection.scss
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">common.scss</span>
+								— файл стилей для общих, переиспользуемых блоков конкретного проекта. Изначально пуст и подключен в
+								connection.scss
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">base.scss</span>
+								— файл базовых стилей шаблона. Содержит полезные SCSS-шаблоны и закомментированные подключения файлов с
+								базовыми стилями различных модулей.
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">libs</span>
+								— содержит файлы полных (заводских) стилей различных модулей и плагинов
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">fonts </span>
+								— содержит файл(ы) стилей связанных со шрифтами. Содержит файл icons.scss для подключения иконочного
+								шрифта.
+								Также, <a class="info-installation__link" href="">в процессе подключения локальных шрифтов, </a>
+								тут появляется файл fonts.scss
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">base </span>
+								— содержит вспомогательные файлы стилей, а также файлы с базовыми стилями различных моделей. Для
+								удобства,
+								файлы модулей одной группы (например элементы форм) собраны в отдельные подпапки. Тут же находится файл с
+								обнуляющими стилями
+								<span class="info-installation__bold">null.scss</span>
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div id="src" class="info-content__block">
+						<h2 class="info-installation__title">Содержимое папки src/js:</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">app.js</span>
+								— основной файл скриптов. Служит для подключения необходимого в проекте функционала и прочих настройек.
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">
+									libs
+								</span>
+								— содержит файлы готовых дополнений, как правило, не предусмотренных для редактирования.
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">files</span>
+								— содержит файлы различных модулей и прочего функционала.
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+					<div id="src" class="info-content__block">
+						<h2 class="info-installation__title">Содержимое папки src/js/files:</h2>
+						<ul class="info-content__list">
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">script.js</span>
+								— предназначен для написания своего кода для проекта. Изначально импортирован в app.js
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">
+									functions.js
+								</span>
+								— содержит мелкие модули и различный вспомогательный функционал. Изначально импортирован в app.js, но
+								модули
+								закомментированны
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">gallery.js</span>
+								— содержит подключение плагина и стилей галереи. Изначально импортирован в app.js, закомментированн. При
+								необходимости, в него можно вносить изменения
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">sliders.js</span>
+								— содержит подключение плагина и стилей слайдера, функционал для автоматического добавления классов, код
+								для
+								создания конкретных слайдеров. Изначально импортирован в app.js, закомментированн
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">tippy.js</span>
+								— содержит подключение плагина и стилей плагина подсказок. Изначально импортирован в app.js,
+								закомментированн.
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">map.js</span>
+								(в работе) — содержит шаблонный код для реализации функционала карт.
+							</li>
+							<li class="info-installation__item">
+								Файл
+								<span class="info-installation__bold">modules.js</span>
+								— вспомогательный файл для работы ЧФ.
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">forms</span>
+								— содержит файлы модулей для работы с формами
+							</li>
+							<li class="info-installation__item">
+								Папка
+								<span class="info-installation__bold">scroll</span>
+								— содержит модули для работы с прокруткой сайта
+							</li>
+						</ul>
+					</div>
+					<!-- ==============================================================================================-->
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="installation-template.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="rabota-so-shriftami.html" class="template__next">Следующая страница >> </a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

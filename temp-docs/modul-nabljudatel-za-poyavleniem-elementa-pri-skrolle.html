@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль «Наблюдатель» за появлением элементов при прокрутке страницы (скролле)</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="observation">
+				<div class="observation__container">
+					<h1 class="installation__title">Модуль «Наблюдатель» за появлением элементов при прокрутке страницы (скролле)</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Модуль «Наблюдатель» можно использовать для решения самых разных задач: анимация элементов при скролле,
+						подсветка активного пункта меню (используется в модуле «Прокрутка к нужному блоку») и многих других.
+					</div>
+					<div class="info-post__text">
+						Суть работы наблюдателя заключается в добавлении класса <span class="info-installation__bold">_watcher-view</span> элементу в момент его появлении в вьюпорте (экране) при
+						скролле а также при открытии страницы. И, соответственно, убран при уходе объекта из вьюпорта.
+					</div>
+
+					<h2 class="info-installation__title">Подключение функционала</h2>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span>
+						Для объекта, за которым нужно установить наблюдение, следует добавить атрибут
+						<span class="info-installation__bold">data-watch</span>
+					</div>
+					<div class="info-installation__code">
+						<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-watch</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+							...
+							<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+					</div>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку import <span class="info-installation__bold">‘./libs/watcher.js’</span>
+					</div>
+					<h2 class="info-installation__title">Дополнительные настройки:</h2>
+
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-watch-root=’селектор’</span>
+							— селектор родителя внутри которого наблюдать за объектом. По умолчанию "body"
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-watch-margin=’значение’</span>
+							— отступ от родителя. Указываем значение в PX или в %
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-watch-threshold=’значение’</span>
+							— процент показа объекта для срабатывания. Где 1 = 100% показ объекта. Указываем только целые или десятичные
+							числа, по умолчанию 0. Может содержать массив значений через запятую.
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">npm run zip</span>
+							Режим продакшена и создание ZIP-архива с результатом. Команда запуска
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">data-watch-once</span>
+							— наблюдать только один раз. То есть класс к объекту добавится только один раз и не будет убран при уходе
+							объекта из вьюпорта.
+						</li>
+					</ul>
+					<div class="info-post__text">
+						<i>Пример — класс добавится только один раз, при появлении объекта на 50% его высоты:</i>
+					</div>
+					<div class="info-installation__code">
+						<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-watch-threshold</span>=<span class="value">"0.5"</span> <span class="attribute">data-watch-once</span> <span class="attribute">data-watch</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+							...
+							<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+					</div>
+
+					<h2 class="info-installation__title">События</h2>
+					<div class="info-post__text">
+						После каждом срабатывании наблюдателя, возникает событие <span class="info-installation__bold">watcherCallback</span>, его можно отловить в любой части кода:
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="javascript">document.addEventListener(<span class="string">"watcherCallback"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+				<span class="comment">// Полная информация от наблюдателя</span>
+				<span class="keyword">const</span> entry = e.detail.entry;
+				<span class="comment">// Наблюдаемый объект</span>
+				<span class="keyword">const</span> targetElement = entry.target;
+			});</code>
+		</pre>
+
+					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+					<div class="info-post__text">
+						Функционал находится в файле <span class="info-installation__bold">js/libs/watcher.js.</span> Название класса
+						<span class="info-installation__bold">ScrollWatcher</span>. Модуль построен на основе <a class="info-installation__link" href="https://developer.mozilla.org/ru/docs/Web/API/Intersection_Observer_API">Intersection Observer
+							API.</a>
+					</div>
+					<div class="info-post__text">
+						Модуль снабжен системой <span class="info-installation__bold">FLS</span> и будет сообщать о своих действиях в
+						консоль браузера
+					</div>
+				</div>
+
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="modul-pokazat-eshhjo.html" class="template__next">Следующая страница >></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

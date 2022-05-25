@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль «Табы»</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Модуль «Табы»</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Табы — это заголовки и соответствующие им блоки. Как правило, по умолчанию открыт только один блок остальные
+						скрыты. При клике на заголовок показывается соответствующий ему блок.
+					</div>
+
+					<h2 class="info-installation__title">Основные возможности</h2>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							Использование множества блоков с табами
+						</li>
+						<li class="info-installation__item">
+							Открытие нужного таба по хешу
+						</li>
+						<li class="info-installation__item">
+							Превращение табов в спойлеры на указанной ширине экрана (удобно для адаптива)
+						</li>
+						<li class="info-installation__item">
+							Возможность анимированного открытия табов
+						</li>
+						<li class="info-installation__item">
+							Семантика
+						</li>
+					</ul>
+
+					<h2 class="info-installation__title">Подключение функционала</h2>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[HTML]</span> В нужном месте вызвать <span class="info-installation__bold">сниппет tabs</span> (классы можно заменить на нужные). Либо
+						вручную создать структуру с соответствующими дата-атрибутами. Обратите внимание, что добавление класса
+						<span class="info-installation__bold">_tab-active</span> для заголовка таба сделает таб активным (открытым)
+					</div>
+
+					<div class="info-post__text">
+						<i>Пример блока с тремя табами:</i>
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-tabs</span> <span class="attribute">class</span>=<span class="value">"tabs"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">nav</span> <span class="attribute">data-tabs-titles</span> <span class="attribute">class</span>=<span class="value">"tabs__navigation"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"tabs__title _tab-active"</span>&gt;</span>Таб №1<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"tabs__title"</span>&gt;</span>Таб №2<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"tabs__title"</span>&gt;</span>Таб №3<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">nav</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-tabs-body</span> <span class="attribute">class</span>=<span class="value">"tabs__content"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tabs__body"</span>&gt;</span>
+						Содержимое первого таба
+					<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tabs__body"</span>&gt;</span>
+						Содержимое второго таба
+					<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"tabs__body"</span>&gt;</span>
+						Содержимое третьего таба
+					<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+			</pre>
+
+
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span class="info-installation__bold">flsFunctions.tabs();</span>
+						<span class="info-installation__bold">[SCSS]</span> (не обязательно) Если вы хотите сразу посмотреть на работу
+						табов и оставили классы
+						предложенные
+						сниппетом, вы можете раскомментировать строку <span class="info-installation__bold">@import «base/tabs»;</span>
+						в файле
+						<span class="info-installation__bold">src/scss/base.scss</span> — это подключит
+						базовые стили, их можно отредактировать под свои нужды.
+					</div>
+
+
+					<h2 class="info-installation__title">Использование функционала</h2>
+					<h2 class="info-installation__title">Превращение табов в спойлеры</h2>
+					<div class="info-post__text">
+						Для того, чтобы табы превращались в спойлеры, необходимо для элемента с атрибутом <span class="info-installation__bold">data-tabs</span> указать значение ширины экрана ниже которой произойдет
+						превращение:
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-tabs</span>=<span class="value">"768"</span> <span class="attribute">class</span>=<span class="value">"tabs"</span>&gt;</span>
+				...
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+		</pre>
+
+					<div class="info-post__text">
+						В момент превращения, к объекту с атрибутом <span class="info-installation__bold">data-tabs</span> добавится
+						класс <span class="info-installation__bold">_tab-spoller,</span> по которому можно изменить стили для нового
+						представления табов-спойлеров.
+					</div>
+
+					<h2 class="info-installation__title">Открытие нужного таба по хешу</h2>
+
+					<div class="info-post__text">
+						Если есть необходимость открывать конкретный таб в конкретном блоке табов при открытии страницы по хешу,
+						необходимо, для элемента с атрибутом <span class="info-installation__bold">data-tabs</span>, добавить атрибут
+						<span class="info-installation__bold">data-tabs-hash:</span>
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-tabs</span> <span class="attribute">data-tabs-hash</span> <span class="attribute">class</span>=<span class="value">"tabs"</span>&gt;</span>
+				...
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+		</pre>
+
+					<div class="info-post__text">
+						Теперь, при клике на заголовки табов, к адресу страницы будет добавляться хеш вида: #tab-0-1, где 0 — это
+						идентификатор блока с табами, а 1 — идентификатор таба в этом блоке.
+					</div>
+
+					<div class="info-post__text">
+						Соответсвенно, перейдя на страницу с хешем #tab-0-1 откроется второй таб в первом блоке с табами. При #tab-2-0
+						откроется первый таб в третьем блоке с табами и т.д.
+					</div>
+
+					<h2 class="info-installation__title">Анимация при открытии таба</h2>
+
+					<div class="info-post__text">
+						Для того, чтобы табы открывались плавно, необходимо объекту с атрибутом data-tabs, добавить атрибут
+						data-tabs-animate, а в качестве значения указать количество миллисекунд за которые откроется таб (по умолчанию
+						500).
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-tabs</span> <span class="attribute">data-tabs-animate</span>=<span class="value">"1000"</span> <span class="attribute">class</span>=<span class="value">"tabs"</span>&gt;</span>
+				...
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
+		</pre>
+
+
+					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+
+					<div class="info-post__text">
+						Функционал находится в <span class="info-installation__bold">js/files/functions.js.</span> Название функции
+						<span class="info-installation__bold">tabs()</span>
+					</div>
+				</div>
+
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="modul-pokazat-eshhjo.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="modul-spojlery.html" class="template__next">Следующая страница
+										>></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

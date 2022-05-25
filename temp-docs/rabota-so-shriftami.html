@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Работа со шрифтами. Локальные иконочные шрифты. Подключение Google Fonts</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+		</main>
+		<section class="fonts">
+			<div class="fonts__container">
+				<h1 class="installation__title">Работа со шрифтами. Локальные и иконочные шрифты. Подключение из Google Fonts</h1>
+				<p class="installation__cat">Категории:
+					<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+				</p>
+				<div class="info-post__text">
+					В стартовом шаблоне «Чертоги Фрилансера» v3.0.0 (далее ЧФ) весь процесс подключения локальных и иконочных
+					шрифтов максимально автоматизирован. Исходные файлы шрифтов конвертируются с современные форматы .WOFF и
+					.WOFF2, а также производится запись подключения шрифтов в файл стилей, включая значение font-weight на основе
+					имени файла.
+				</div>
+				<!-- ==============================================================================================-->
+				<div class="info-content__block">
+					<h2 class="info-installation__title">Как Стартовый шаблон обрабатывает шрифты?</h2>
+					<div class="info-post__text">
+						При запуске шаблона в любом режиме, ЧФ проверит, есть ли файлы шрифтов в форматах .TTF и/или .OTF в папке
+						src/fonts.
+					</div>
+					<div class="info-post__text">
+						Далее происходит три этапа конвертации:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							Файлы .OTF (если они есть) конвертируются в .TTF и сохраняются в папке с исходниками src/fonts.
+						</li>
+						<li class="info-installation__item">
+							Файлы .TTF конвертируются в .WOFF и записываются в папку с результатом (dist/fonts)
+						</li>
+						<li class="info-installation__item">
+							Файлы .TTF конвертируются в .WOFF2 и записываются в папку с результатом (dist/fonts)
+						</li>
+					</ul>
+					<div class="info-post__text">
+						После конвертации ЧФ проверит наличие файла стилей scss/fonts/fonts.scss и, если его нет, запишет в него
+						конструкции @font-face для всех файлов, включая значение font-weight основанное на имени файла.
+					</div>
+
+					<div class="info-installation__quote">
+						<div class="info-post__text">
+							Если файл scss/fonts/fonts.scss уже существует, данные не перезапишутся. Это сделано для того, что если
+							нам придется внести изменения в файл scss/fonts/fonts.scss после работы ЧФ, эти изменения не затерлись.
+						</div>
+					</div>
+
+					<div class="info-post__text">
+						<span class="info-installation__bold">В каких случаях нам потребуется внести изменения в файл
+							scss/fonts/fonts.scss в ручную?</span>
+						Дело в том, что значение font-weight основывается на имени файла шрифта, то есть если файлы называется
+						Roboto-bold, то значение font-weight будет 700. Но если файл будет назван без отделения начертания, например
+						RobotoBold, то адекватное определение не удастся и будет записано значение по умолчанию (400). И вот в этих
+						случаях нам необходимо отредактировать файл указав адекватные значения.
+					</div>
+
+					<div class="info-installation__quote">
+						<div class="info-post__text">
+							Если мы хотим перезаписать данные в файле <span class="info-installation__bold">scss/fonts/fonts.scss,</span> нам следует его удалить и перезапустить
+							систему, или запустить команду <span class="info-installation__bold">npm run fonts</span> (система сама
+							удалит файл и создаст новый)
+						</div>
+					</div>
+				</div>
+				<!-- ==============================================================================================-->
+				<div class="info-content__block">
+					<h2 class="info-installation__title">Как подключить локальные файлы шрифтов:</h2>
+
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							Скачать или получить от дизайнера/заказчика файлы шрифтов в формате .TTF и/или .OTF и положить их в папку
+							<span class="info-installation__bold">src/fonts (если папки нет — создать)</span>
+						</li>
+						<li class="info-installation__item">
+							Раскомментировать подключение файла <span class="info-installation__bold">fonts.scss (строка
+								fonts/fonts)</span> в файле <span class="info-installation__bold">scss/style.scss</span>
+						</li>
+						<li class="info-installation__item">
+							Указать семейство шрифта по умолчанию в переменной <span class="info-installation__bold">$fontFamily</span> в файле <span class="info-installation__bold">scss/style.scss</span>
+						</li>
+						<li class="info-installation__item">
+							Запустить Стартовый шаблон в любом режиме
+						</li>
+					</ul>
+					<div class="info-post__text">
+						При необходимости, вы можете отредактировать созданный и заполненный файл <span class="info-installation__bold">scss/fonts/fonts.scss</span>
+						При необходимости пересоздать данные в файле стилей <span class="info-installation__bold">scss/fonts/fonts.scss</span> полностью, следует его удалить и
+						перезапустить систему, или запустить команду <span class="info-installation__bold">npm run fonts</span>
+						(система сама удалит файл и создаст новый)
+					</div>
+				</div>
+				<!-- ==============================================================================================-->
+				<div class="info-content__block">
+					<h2 class="info-installation__title">Как подключить локальные файлы иконочных шрифтов:</h2>
+
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							Тем или иным способом создать файл иконочного шрифта в формате .TTF и/или .OTF и положить его в папку
+							<span class="info-installation__bold">src/fonts</span> (идет работа над автоматизацией этого процесса)
+						</li>
+						<li class="info-installation__item">
+							Отредактировать файл <span class="info-installation__bold">scss/fonts/icons.scss</span> внеся классы для
+							иконок, а также убедится в том что имя шрифта (font-family) для SCSS-шаблона <span class="info-installation__bold">%ic {}</span> совпадает с тем что указан в файле <span class="info-installation__bold">scss/fonts/fonts.scss</span>
+						</li>
+						<li class="info-installation__item">
+							Раскомментировать подключение файла <span class="info-installation__bold">icons.scss (строка
+								fonts/icons)</span> в файле <span class="info-installation__bold">scss/style.scss</span>
+						</li>
+						<li class="info-installation__item">
+							Запустить Стартовый шаблон
+						</li>
+					</ul>
+				</div>
+				<!-- ==============================================================================================-->
+				<div class="info-content__block">
+					<h2 class="info-installation__title">Как подключить шрифты из Google Fonts:</h2>
+					<div class="info-post__text">
+						Самый простой способ — это воспользоваться плагином для VS Code Google Fonts
+						<a class="info-installation__link" href="https://marketplace.visualstudio.com/items?itemName=lior-chamla.google-fonts">Google Fonts</a>
+					</div>
+
+
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							Нажимаем F1 и ищем плагин Google Fonts
+						</li>
+						<li class="info-installation__item">
+							Если хотим подключить шрифт отдельным тегом link в HTML файл, выбираем <span class="info-installation__bold">Google Fonts: insert "link" </span>
+						</li>
+						<li class="info-installation__item">
+							Если хотим подключить шрифт в файл стилей (обычно это <span class="info-installation__bold">scss/style.scss</span> ), выбираем Google <span class="info-installation__bold">Fonts: insert CSS @import</span>
+						</li>
+						<li class="info-installation__item">
+							Из появившегося списка выбираем нужный шрифт, можно воспользоваться поиском
+						</li>
+						<li class="info-installation__item">
+							После вставки строки подключения следует отредактировать строку оставив только нужные начертания шрифта
+						</li>
+						<li class="info-installation__item">
+							Также следует добавить к строке подключения флаг &display=swap
+						</li>
+					</ul>
+					<div class="info-post__text">
+						<i>Пример подключения шрифта Montserrat:</i>
+					</div>
+
+					<div class="info-installation__code">
+						<code class="ruby"><span class="variable">@import</span> url(<span class="symbol">https:</span>/<span class="regexp">/fonts.googleapis.com/css</span><span class="number">?f</span>amily=<span class="constant">Montserrat</span><span class="symbol">:</span><span class="number">400</span>,<span class="number">500</span>,<span class="number">800</span>&amp;display=swap);</code>
+					</div>
+
+					<div class="info-post__text">
+						Шрифты подключенные из Google Fonts не должны попадать в папку с результатом (dist), они подгружаются с
+						сервера Google.
+					</div>
+
+					<div class="info-post__text">
+						Также, стоит отметить, что получить строку для подключения шрифта вы можете и без плагина на сайте
+						<a class="info-installation__link" href="">Google Fonts.</a>
+					</div>
+
+				</div>
+				<!-- ==============================================================================================-->
+			</div>
+			<div class="navigation">
+				<div class="navigation__container">
+					<div class="navigation__content">
+						<a href="info-archetecture.html" class="template__prev">
+							<< Предыдущая страница</a>
+								<a href="rabota-s-svg-sprajtami.html" class="template__next">Следующая страница >> </a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Модуль слайдера «Swiper»</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Модуль слайдера «Swiper»</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						В <a class="info-installation__link" href="#">Стартовом шаблоне</a>, есть подготовка к работе со <a class="info-installation__link" href="https://swiperjs.com/">слайдером Swiper.</a>
+					</div>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[HTML]</span> Существует два сниппета для построения HTML-структуры
+						слайдера:
+					</div>
+					<ul class="info-content__list">
+						<li class="info-installation__item">
+							<span class="info-installation__bold">swiper</span> — строит минимальную структуру с уже добавленными
+							классами слайдера (для более опытных)
+						</li>
+						<li class="info-installation__item">
+							<span class="info-installation__bold">swiperfull</span> — строит полную структуру слайдера с добавлением
+							всех возможных элементов управления (кнопки «влево/вправо», скролл, пагинация (булеты)) с уже добавленными
+							классами слайдера. Весь код сопровождается комментариями (для новичков).
+						</li>
+					</ul>
+
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span class="info-installation__bold">import «./files/sliders.js»;</span>
+					</div>
+					<div class="info-post__text">
+						В файле <span class="info-installation__bold">js/files/sliders.js</span> выполняется подключение самого
+						слайдера «Swiper» из NPM пакета (подключено по умолчанию)
+					</div>
+					<div class="info-installation__code">
+						<code class="python"><span class="keyword">import</span> Swiper, { Navigation } <span class="keyword">from</span> <span class="string">'swiper'</span>;</code>
+					</div>
+					<div class="info-post__text">
+						При необходимости, можно подключить больше нужных модулей:
+					</div>
+					<div class="info-installation__code">
+						<code class="python"><span class="keyword">import</span> Swiper, { Navigation, Pagination, Lazy, Autoplay } <span class="keyword">from</span> <span class="string">'swiper'</span>;</code>
+					</div>
+					<div class="info-post__text">
+						Полный список модулей — <a class="info-installation__link" href="https://swiperjs.com/swiper-api#using-js-modules">тут</a>
+					</div>
+					<div class="info-post__text">
+						Также, ниже по коду, есть пример-подготовка для создания конкретного слайдера (функция <span class="info-installation__bold">initSliders();</span> ) Тут мы создаем и настраиваем нужные нам слайдеры, не
+						забываем указывать модули для конкретного слайдера:
+					</div>
+					<div class="info-installation__code">
+						<code class="cs"><span class="keyword">new</span> Swiper(<span class="string">'.swiper'</span>, {
+							modules: [Navigation, Autoplay],
+							...
+							}</code>
+					</div>
+
+					<div class="info-installation__help">
+						<p class="info-installation__text">
+							Информацию по настройке смотри в <a class="info-installation__link" href="https://swiperjs.com/swiper-api">документации</a> на сайте слайдера.
+						</p>
+					</div>
+
+					<div class="info-post__text">
+						Инициализация слайдера(ов) <span class="info-installation__bold">initSliders()</span> ; происходит после полной
+						загрузки страницы ниже по коду:
+					</div>
+
+					<pre class="info-installation__code">
+			<code class="javascript">window.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+				<span class="comment">// Запуск инициализации слайдеров</span>
+				initSliders();
+			});</code>
+		</pre>
+
+					<div class="info-post__text">
+						<span class="info-installation__bold">[SCSS]</span> По умолчанию, в файле <span class="info-installation__bold">js/files/sliders.js</span> подключены базовые, минимально необходимые для
+						работы, стили слайдера <span class="info-installation__bold">import «../../scss/base/swiper.scss»;</span> (для
+						более опытных). Также есть возможность подключить (расскоментировав строку) полные стили слайдера из файла
+						<span class="info-installation__bold">scss/libs/swiper.scss</span> или из пакета <span class="info-installation__bold">import ‘swiper/css’;</span> (для начинающих)
+					</div>
+				</div>
+
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="modul-lenivaya-podgruzka-lazy-loading.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="rabota-s-formami.html" class="template__next">Следующая страница
+										>></a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

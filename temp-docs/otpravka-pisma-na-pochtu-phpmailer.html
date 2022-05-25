@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Отправка письма на почту (PHPMailer)</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="article">
+				<div class="article__container">
+					<h1 class="installation__title">Отправка письма на почту (PHPMailer)</h1>
+					<p class="installation__cat">Категории:
+						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+					</p>
+					<div class="info-post__text">
+						Шаблон содержит функционал позволяющий отправлять письма. Работает на основе модуля
+						<a class="info-installation__link" href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>
+					</div>
+					<h2 class="info-installation__title">Подключение функционала</h2>
+					<div class="info-post__text">
+						<span class="info-installation__bold">[ФАЙЛЫ]</span> Копируем папку <span class="info-installation__bold">src/componetns/sendmail</span> в папку
+						<span class="info-installation__bold">src/files/sendmail</span>
+						<span class="info-installation__bold">[HTML]</span> Создаем форму, указав в атрибуте <span>action</span> адрес
+						<span class="info-installation__bold">files/sendmail/sendmail.php.</span> Можна воспользоваться
+						сниппетом <span class="info-installation__bold">formemail</span>. Пример:
+					</div>
+					<pre class="info-installation__code">
+			<code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"files/sendmail/sendmail.php"</span> <span class="attribute">method</span>=<span class="value">"POST"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"form[email]"</span> <span class="attribute">data-error</span>=<span class="value">"Error"</span> <span class="attribute">placeholder</span>=<span class="value">"E-mail"</span> <span class="attribute">class</span>=<span class="value">"input"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">class</span>=<span class="value">"button"</span>&gt;</span>Send<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code>
+			</pre>
+
+					<div class="info-post__text">
+						<span class="info-installation__bold">[JS]</span> Также, при необходимости, можно добавить
+						<a class="info-installation__link" href="rabota-s-formami.html">функционал валидации и отправки формы</a>
+					</div>
+					<div class="info-post__text">
+						<span>[PHP]</span> Все настройки касательно отправки данных на почту проводятся в файле
+						<span>files/sendmail/sendmail.php</span> согласно документации <a class="info-installation__link" href="https://github.com/PHPMailer/PHPMailer">модуля PHPMailer</a>
+					</div>
+				</div>
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="modul-formy-kollichestvo.html" class="template__prev">
+								<< Предыдущая страница </a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>

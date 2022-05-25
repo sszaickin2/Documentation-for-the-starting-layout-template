@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Установка и запуск шаблона</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../css/style.min.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav id="menu" class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Обновления</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Скачать</a></li>
+							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="installation">
+				<div class="installation__container">
+					<h1 class="installation__title">Установка и запуск шаблона. <br> Подготовка к работе</h1>
+					<div class="installation__category">
+						<p class="installation__cat">Категории:
+							<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+						</p>
+						<p class="installation__body">Итак, вы
+							<a class="info-installation__link" href="#">скачали Стартовый шаблон</a>
+							какие следующие шаги?
+						</p>
+					</div>
+					<div class="installation__info info-installation">
+						<h2 class="info-installation__title">Установка шаблона</h2>
+						<p class="info-installation__text">Первым делом следует разархивировать zip-архив в вашу папку проекта. Следите
+							за
+							тем, чтобы сама папка и её родительские папки не содержали в названии кириллицу, пробелы, символы # и !</p>
+						<img class="info-installation__image" src="img/installation/installation1.png" alt="">
+						<p class="info-installation__text">Если вы до этого момента не пользовались сборщиками GULP, WEBPACK и пакетным
+							менеджером NPM, следует
+							<a class="info-installation__link" href="https://nodejs.org/ru/">скачать и установить Node.js.</a>
+							Качайте версию рекомендованную для большинства.
+						</p>
+						<p class="info-installation__text">
+							Далее, открываем терминал в этой папке проекта. Терминал может быть встроен или открыт отдельно от
+							редактора.
+							Рекомендую использовать терминал
+							<a class="info-installation__link" href="https://git-scm.com/downloads">GIT Bash.</a>
+						</p>
+						<p class="info-installation__text">
+							Если вы до этого момента не пользовались сборщиком GULP введите в терминал команду
+							<span class="info-installation__bold"></span>
+							это установит GULP в систему глобально.
+						</p>
+						<p class="info-installation__text">
+							После завершения установки GULP введите команду
+							<span class="info-installation__bold">npm i</span>
+						</p>
+						<!-- ==============================================================================================-->
+						<div class="info-installation__quote">
+							<p class="info-installation__text">В процессе установки в терминале могут возникать сообщение с пометкой
+								WARN на
+								желтом фоне. Эти сообщения можно игнорировать. Но, если вы получаете сообщение ERR! красным цветом — это
+								критическая ошибка и её нужно исправлять.</p>
+						</div>
+						<div class="info-installation__img">
+							<div class="info-installation__error">
+								<img src="img/installation/installation2.png" alt="">
+								<span>Предупреждения можно игнорировать</span>
+							</div>
+
+							<div class="info-installation__error">
+								<img src="img/installation/installation3.png" alt="">
+								<span>Ошибка зависимостей</span>
+							</div>
+						</div>
+						<p class="info-installation__text">
+							Часто может возникнуть ошибка зависимостей устанавливаемых пакетов (плагинов), и в NPM выше 7й версии это
+							приводит к критической ошибке и остановке инсталляции.
+						</p>
+						<p class="info-installation__text">
+							тобы решить проблему выполните команду
+							<span class="info-installation__bold">npm i --legacy-peer-deps,</span>
+							это запустит процесс установки игнорируя подобные несовместимости.
+						</p>
+						<div class="info-installation__help">
+							<p class="info-installation__text">Помните — версии NodeJS и Python в вашей системе должны быть свежих
+								версий.
+							</p>
+						</div>
+						<p class="info-installation__text">После успешной установки, у вас появится папка node_modules и файл
+							package-lock.json</p>
+						<img class="info-installation__image" src="img/installation/installation4.png" alt="">
+						<p class="info-installation__text">
+							Подробнее про
+							<a class="info-installation__link" href="">архитектуру папок и файлов</a>
+							мы поговорим в следующей главе, а пока продолжаем подготовку к работе
+						</p>
+					</div>
+
+					<div class="installation__info info-content">
+						<!-- ==============================================================================================-->
+
+						<div class="info-content__block">
+							<h2 class="info-installation__title">Запуск шаблона и режимы работы</h2>
+							<p class="info-installation__text">Шаблон «Чертоги Фрилансера» может выполнять несколько сценариев:</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Режим разработчика. Команда запуска
+									<span class="info-installation__bold">npm run dev</span>
+								<li class="info-installation__item">
+									Режим продакшена. Команда запуска
+									<span class="info-installation__bold">npm run build</span>
+								</li>
+								<li class="info-installation__item">
+									Режим продакшена и отправка результата на сервер по FTP. Команда запуска
+									<span class="info-installation__bold">
+										npm run deploy
+									</span>
+								</li>
+								<li class="info-installation__item">
+									Режим продакшена и создание ZIP-архива с результатом. Команда запуска
+									<span class="info-installation__bold">npm run zip</span>
+								</li>
+								<li class="info-installation__item">
+									Режим продакшена без создания WEBP изображений и действий связанных с этим форматом. Команда запуска
+									<span class="info-installation__bold">npm run devbuild</span>
+								</li>
+							</ul>
+							<p class="info-installation__text">Дополнительные команды:</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Ручное создание SVG спрайта. Команда запуска
+									<span class="info-installation__bold">npm run sprite</span>
+								</li>
+								<li class="info-installation__item">
+									Конвертация шрифтов с принудительной перезаписью файла стилей. Команда запуска
+									<span class="info-installation__bold">npm run fonts</span>
+								</li>
+							</ul>
+						</div>
+						<!-- ==============================================================================================-->
+						<div class="info-content__block">
+							<h2 class="info-installation__title">Режим разработчика</h2>
+							<p class="info-installation__text">В режиме разработчика выполняются только необходимые для процесса
+								разработки
+								задачи:</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Конвертация шрифтов и запись в файл стилей
+								<li class="info-installation__item">
+									Конвертация SCSS файлов в CSS файлы, переименование псевдонимов
+								</li>
+								<li class="info-installation__item">
+									Сборка HTML файлов, переименование псевдонимов
+								</li>
+								<li class="info-installation__item">
+									При использовании PUG, файлы преобразовываются в HTML, переименовываются псевдонимы
+								</li>
+								<li class="info-installation__item">
+									Собираются JS файлы
+								</li>
+							</ul>
+							<p class="info-installation__text">Дополнительные команды:</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Запускается локальный сервер, открывается браузер с индексной страницей.
+								</li>
+								<li class="info-installation__item">
+									Запускается наблюдатель за изменением фалов. При каждом изменении файла браузер обновляет страницу
+									(кроме
+									страницы-содержания)
+								</li>
+								<li class="info-installation__item">
+									Копируются файлы из указанной папки
+								</li>
+								<li class="info-installation__item">
+									HTML CSS JS файлы результата не записываются на диск
+									<span class="info-installation__bold">(папка dist не создается).</span>
+								</li>
+							</ul>
+						</div>
+						<!-- ==============================================================================================-->
+						<div class="info-installation__help">
+							<p class="info-installation__text">
+								Если у вас слабый ПК (мало ОЗУ) или шаблон со временем начинает тормозить, откройте файл <span class="info-installation__bold">config/webpack.dev.js</span> и раскомментируйте блок:
+							</p>
+						</div>
+						<div class="info-installation__code">
+							<code>
+								<span class="tag">devMiddleware</span>: { <br>
+								<span class="attribute">writeToDisk</span>: <span class="value">true</span>, <br>
+								},
+							</code>
+						</div>
+						<div class="info-installation__help">
+							<p class="info-installation__text">
+								Параметр включит создание папки
+								<span class="info-installation__bold">dist</span>
+								в режиме разработчика, что повышает скорость работы сборки на слабых ПК.
+							</p>
+						</div>
+						<!-- ==============================================================================================-->
+						<div class="info-content__block">
+							<h2 class="info-installation__title">Режим продакшена</h2>
+							<p class="info-installation__text">В режиме продакшена выполняется финализация проекта, а именно:</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Конвертация шрифтов и запись в файл стилей
+								<li class="info-installation__item">
+									Конвертация изображений в WEBP формат. Сжатие и оптимизация JPG PNG SVG картинок
+								</li>
+								<li class="info-installation__item">
+									Конвертация SCSS файлов в CSS файлы, переименование псевдонимов, группировка медиа-запросов,
+									добавляются
+									вендорные префиксы для обеспечения кроссбраузерности, обрабатывается подключение WEBP изображений,
+									производится сжатие и оптимизация конечного файла (также создается несжатая копия)
+								</li>
+								<li class="info-installation__item">
+									Сборка HTML файлов, переименование псевдонимов, обрабатывается подключение WEBP изображений
+								</li>
+								<li class="info-installation__item">
+									Собираются JS файлы, производится сжатие и оптимизация конечного файла. В результат попадает только
+									используемый код. Итогом задачи будет создание двух файлов: сжатого app.min.js (подключен к HTML) и не
+									сжатого app.js для дальнейшего редактирования другими специалистами.
+								</li>
+								<li class="info-installation__item">
+									Копируются файлы из указанной папки
+								</li>
+								<li class="info-installation__item">
+									Все файлы с результатом записываются на диск (обычно в папку dist), локальный сервер не запускается
+								</li>
+							</ul>
+						</div>
+						<div class="info-installation__help">
+							<p class="info-installation__text">
+								Итак, давайте же запустим наш шаблон в режиме разработчика, для этого в терминале выполняем команду
+								<span class="info-installation__bold">npm run dev</span>
+							</p>
+						</div>
+						<p class="info-installation__text">После запуска система выполнет все задачи режима разработчика описанные
+							выше.
+							Результатом работы должна стать открытая в браузере страница содержания.</p>
+						<div class="info-installation__help">
+							<p class="info-installation__text">
+								Внимание, страница содержания не обновляется автоматически при её редактировании
+							</p>
+						</div>
+
+						<div class="info-installation__img">
+							<div class="info-installation__error">
+								<img src="img/installation/installation5.png" alt="">
+								<span>Старт выполнения команды</span>
+							</div>
+
+							<div class="info-installation__error">
+								<img src="img/installation/installation6.png" alt="">
+								<span>Команда успешно выполнена</span>
+							</div>
+						</div>
+						<!-- ==============================================================================================-->
+
+						<div class="info-content__block">
+							<h2 class="info-installation__title">Возможные ошибки и их решения</h2>
+							<p class="info-installation__text">Если браузер не запустился, а в терминале видны ошибки (ERR!) убедитесь
+								что:
+							</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									У вас установлен Node.js и Python последней версии
+								<li class="info-installation__item">
+									Терминал открыт с правами администратора
+								</li>
+								<li class="info-installation__item">
+									В названиях папок на всем пути к проекту нет символа # или !
+								</li>
+								<li class="info-installation__item">
+									Папки и файлы должны быть названы латиницей без пробелов
+								</li>
+								<li class="info-installation__item">
+									Тег img и его содержимое должны быть записаны в одну строку без переносов
+								</li>
+								<li class="info-installation__item">
+									В атрибуте src должен быть указан путь к существующей картинке без пробелов
+								</li>
+							</ul>
+							<div class="info-installation__gap">
+								<p class="info-installation__text">
+									При ошибке связанной с node-sass запустите команду
+									<span class="info-installation__bold">npm rebuild node-sass</span>
+								</p>
+								<p class="info-installation__text">
+									При ошибке связанной с Python запустите команду
+									<span class="info-installation__bold">npm install -g windows-build-tools</span>
+								</p>
+								<p class="info-installation__text">
+									При ошибке Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]:
+								</p>
+							</div>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Качаем версию 14.15.1
+									<a class="info-installation__link" href="https://nodejs.org/dist/v14.15.1/">(https://nodejs.org/dist/v14.15.1/),</a>
+									в Zip архиве.
+								<li class="info-installation__item">
+									Заходим в папку с установленным NodeJS, распаковываем содержимое архива в папку, с заменой файлов.
+								</li>
+								<li class="info-installation__item">
+									Далее идем сюда «Панель управления» => «Система» => «Дополнительные параметры системы» =>
+									«Дополнительно» =>
+									«Переменные среды»
+								</li>
+								<li class="info-installation__item">
+									В Системных переменных «Создать» переменную с именем ‘NODE_SKIP_PLATFORM_CHECK’ и присваиваем ей
+									значение
+									‘1’.
+								</li>
+								<li class="info-installation__item">
+									Перезапускаем систему, и запускаем шаблон согласно инструкции
+								</li>
+							</ul>
+						</div>
+						<!-- ==============================================================================================-->
+						<div class="info-content__block">
+							<h2 class="info-installation__title">Подготовка редактора к комфортной работе с шаблоном</h2>
+							<div class="info-installation__help">
+								<p class="info-installation__text">
+									Для того чтобы наслаждаться возможностями шаблона по полной, нам следует произвести некоторые
+									настройки
+									редактора. В качестве примера представлен редактор VS Code
+								</p>
+							</div>
+							<h2 class="info-installation__title">Настройка псевдонимов</h2>
+							<p class="info-installation__text">
+								<a class="info-installation__link" href="#">В главе Архитектура шаблона. Файлы и папки</a>
+								вы узнаете что различные части HTML/PUG SCSS файлов находятся на разных уровнял вложенности, что создает
+								определенные неудобства при подключении, например картинок, в процессе разработки.
+							</p>
+							<p class="info-installation__text">
+								Неудобства мы не любим поэтому настроим, так называемые, псевдонимы (алиасы) путей к папкам. Для этого
+								нам
+								нужно установить плагин
+								<a class="info-installation__link" href="https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete">Path
+									Autocomplete</a>
+								После установки открываем настройки редактора (settings.json), для этого жмем F1 в редакторе и в строке
+								поиска
+								пишем Open Settings и жмем на ссылку Open Settings (JSON).
+							</p>
+							<p class="info-installation__text">В этот файл нужно аккуратно вставить следующий код:</p>
+
+							<div class="info-installation__code">
+								<code class="perl"><span class="string">"path-autocomplete.pathMappings"</span>: { <br>
+									<span class="string">"<span class="variable">img</span>"</span>: <span class="string">"<span class="subst">${folder}</span>/simg"</span>, <span class="regexp">//</span> alias <span class="keyword">for</span> images <br>
+									<span class="string">"<span class="variable">@scss</span>"</span>: <span class="string">"<span class="subst">${folder}</span>/src/scss"</span>, <span class="regexp">//</span> alias <span class="keyword">for</span> scss <br>
+									<span class="string">"<span class="variable">@js</span>"</span>: <span class="string">"<span class="subst">${folder}</span>/src/js"</span>, <span class="regexp">//</span> alias <span class="keyword">for</span> js <br>
+									}</code>
+							</div>
+							<p class="info-installation__text">Очень важно соблюдать синтаксис JSON, обращайте внимания на запятые:</p>
+							<div class="info-installation__info">
+								<img src="img/installation/installation7.png" alt="">
+								<span>Правильная вставка кода</span>
+							</div>
+							<p class="info-installation__text">После этого вы смело можете использовать псевдонимы при подключении
+								файлов,
+								например:</p>
+							<div class="info-installation__code">
+								<code class="xml"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/cover.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Картинка"</span>&gt;</span></code>
+							</div>
+							<p class="info-installation__text">Редактор распознает псевдоним и выведет список файлов в указанной папке,
+								а во
+								время сборки система сама поменяет псевдоним на нужный путь!</p>
+						</div>
+						<!-- ==============================================================================================-->
+						<div id="snipets" class="info-content__block">
+							<h2 class="info-installation__title">Настройка сниппетов</h2>
+							<p class="info-installation__text">Сниппеты — это короткие коды которые могут вызывать готовые заготовки
+								кода
+								любого объема. Это колоссально повышает скорость разработки.
+							</p>
+							<p class="info-installation__text">Конечно же, я использовал эту супер возможность в своих чертогах. То
+								есть,
+								построение, например, правильной HTML структуры для того или иного JS модуля я добавил в сниппеты.
+							</p>
+							<p class="info-installation__text">Чтобы добавить набор сниппетов из шаблона к себе в редактор выполняем
+								следующие действия:
+							</p>
+							<ul class="info-content__list">
+								<li class="info-installation__item">
+									Открываем файл snnipets.txt из архива ЧФ и копируем все содержимое
+								<li class="info-installation__item">
+									В редакторе VS Code переходим в настройки (шестеренка) -> User Snippets ->New Global Snippets File
+									пишем
+									название, например fls, и заменяем содержимое на скопированное из snnipets.txt
+								</li>
+								<li class="info-installation__item">
+									При обновлении шаблона и сниппетов создавать новый файл не нужно, следует открыть существующий и
+									обновить
+									содержимое
+								</li>
+							</ul>
+							<p class="info-installation__text">Отлично, сниппеты Шаблона на борту! В этой документации, а также в коде
+								шаблона вы часто будите встречать подсказки с указанием сниппета.
+							</p>
+							<p class="info-installation__text">
+								В следующей главе мы познакомимся со
+								<a class="info-installation__link" href="">
+									структурой файлов и папок шаблона «Стартового шаблона»
+								</a>
+							</p>
+
+							<p class="info-installation__text">Приятной работы</p>
+
+						</div>
+
+					</div>
+				</div>
+				<!-- ==============================================================================================-->
+				<div class="navigation">
+					<div class="navigation__container">
+						<div class="navigation__content">
+							<a href="template-info.html" class="template__prev">
+								<< Предыдущая страница</a>
+									<a href="info-archetecture.html" class="template__next">Следующая страница >> </a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js"></script>
+</body>
+
+</html>
