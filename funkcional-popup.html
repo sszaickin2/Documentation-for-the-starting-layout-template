@@ -2,87 +2,119 @@
 <html lang="ru">
 
 <head>
-	<title>Модуль «Popup». Всплывающие (модальные) окна</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="../css/style.min.css?_v=20220722224813">
-	<link rel="shortcut icon" href="favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль «Popup». Всплывающие (модальные) окна</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
 <body>
-	<div class="wrapper">
-		<header class="header">
-			<div class="header__container">
-				<div class="header__menu menu">
-					<button type="button" class="menu__icon icon-menu"><span></span></button>
-					<nav id="menu" class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item"><a href="../template-docs.html" class="menu__link">Документация</a></li>
-							<li class="menu__item"><a href="https://github.com/sszaickin2/TEMPLATE" class="menu__link">Скачать</a>
-							</li>
-							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="modal">
-				<div class="modal__container">
-					<h1 class="installation__title">Модуль «Popup». Всплывающие (модальные) окна</h1>
-					<p class="installation__cat">Категории:
-						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
-					</p>
-					<div class="info-post__text">
-						Данный функционал добавляет возможность использовать всплывающие окна. Работа модуля заключается в следующем:
-						пользователь нажимает на указанный элемент (по умолчанию это атрибут с указанным селектором <span class="info-installation__bold">data-popup=‘selector‘)</span>. При этом к тегу <span class="info-installation__bold">body</span> добавляется класс <span class="info-installation__bold">popup-show</span>. Также блокируется прокрутка страницы (можно отключить),
-						фокусировка элементов «перелетает» на popup, с запоминанием предыдущего сфокусированного элемента на странице.
-						Закрытие popup происходит при клике на кнопку закрытия (по умолчанию элемент с атрибутом <span class="info-installation__bold">data-close</span>), по клику на «пустом месте» (не на popup), по нажатию
-						кнопки <span class="info-installation__bold">ESC</span>.
-					</div>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__menu menu">
+                <button type="button" class="menu__icon icon-menu"><span></span></button>
+                <nav id="menu" class="menu__body">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+                        <li class="menu__item"><a href="https://github.com/sszaickin2/TEMPLATE" class="menu__link">Скачать</a>
+                        </li>
+                        <li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="page">
+        <section class="modal">
+            <div class="modal__container">
+                <h1 class="installation__title">Модуль «Popup». Всплывающие (модальные) окна</h1>
+                <p class="installation__cat">Категории:
+                    <a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+                </p>
+                <div class="info-post__text">
+                    Данный функционал добавляет возможность использовать всплывающие окна. Работа модуля заключается в
+                    следующем:
+                    пользователь нажимает на указанный элемент (по умолчанию это атрибут с указанным селектором <span
+                        class="info-installation__bold">data-popup=‘selector‘)</span>. При этом к тегу <span
+                        class="info-installation__bold">body</span> добавляется класс <span
+                        class="info-installation__bold">popup-show</span>. Также блокируется прокрутка страницы (можно
+                    отключить),
+                    фокусировка элементов «перелетает» на popup, с запоминанием предыдущего сфокусированного элемента на
+                    странице.
+                    Закрытие popup происходит при клике на кнопку закрытия (по умолчанию элемент с атрибутом <span
+                        class="info-installation__bold">data-close</span>), по клику на «пустом месте» (не на popup), по
+                    нажатию
+                    кнопки <span class="info-installation__bold">ESC</span>.
+                </div>
 
-					<!-- ==============================================================================================-->
-					<div class="info-content__block">
-						<h2 class="info-installation__title">Подключение функционала</h2>
-						<ul class="info-content__list">
-							<li class="info-installation__item">
-								<span class="info-installation__bold">[HTML]</span> Подключить файл <span class="info-installation__bold">_popup.htm</span>, после оболочки <span class="info-installation__bold">wrapper</span>, в HTML-файл страницы (уже подключен в home.html)
-							</li>
-							<li class="info-installation__item">
-								<span class="info-installation__bold">[SCSS]</span> Подключить файл <span class="info-installation__bold">scss/base/popup.scss</span> в файл <span class="info-installation__bold">scss/base.scss</span> — раскомментировать сроку <span class="info-installation__bold">@import ‘base/popup’;</span>
-							</li>
-							<li class="info-installation__item">
-								<span class="info-installation__bold">[JS]</span> Подключить файл <span class="info-installation__bold">js/libs/popup.js</span> в файле <span class="info-installation__bold">js/app.js</span> —
-								раскомментировать строку import <span class="info-installation__bold">‘./libs/popup.js’</span>
-							</li>
-						</ul>
-					</div>
-					<!-- ==============================================================================================-->
-					<div class="info-content__block">
-						<h2 class="info-installation__title">Использование функционала</h2>
-						<div class="info-post__text">
-							Для того, чтобы вызвать попап, необходимо на странице ввести объект с дата-атрибутом, в котором указан
-							селектор (класс или id) всплывающего окна, на которое ссылаемся:
-						</div>
-						<div class="info-installation__code">
-							<code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-popup</span>=<span class="value">"#popup"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Я открываю попап<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
-						</div>
-						<div class="info-post__text">
-							Далее открыть файл <span class="info-installation__bold">html/_popup.htm,</span> раскомментировать HTML-код
-							подготовки попапа, указать селектор (id или класс) по которому вызывается попап, изменить код под свои
-							нужды.
-						</div>
-						<div class="info-post__text">
-							<i>В примере попап вызывается по id popup:</i>
-						</div>
-						<pre class="info-installation__code">
-				<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"popup"</span> <span class="attribute">aria-hidden</span>=<span class="value">"true"</span> <span class="attribute">class</span>=<span class="value">"popup"</span>&gt;</span>
-					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__wrapper"</span>&gt;</span>
-						<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__content"</span>&gt;</span>
-							<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-close</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"popup__close"</span>&gt;</span>Закрыть<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-							<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__text"</span>&gt;</span>
+                <!-- ==============================================================================================-->
+                <div class="info-content__block">
+                    <h2 class="info-installation__title">Подключение функционала</h2>
+                    <ul class="info-content__list">
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">[HTML]</span> Подключить файл <span
+                                class="info-installation__bold">_popup.htm</span>, после оболочки <span
+                                class="info-installation__bold">wrapper</span>, в HTML-файл страницы (уже подключен в
+                            home.html)
+                        </li>
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">[SCSS]</span> Подключить файл <span
+                                class="info-installation__bold">scss/base/popup.scss</span> в файл <span
+                                class="info-installation__bold">scss/base.scss</span> — раскомментировать сроку <span
+                                class="info-installation__bold">@import ‘base/popup’;</span>
+                        </li>
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">[JS]</span> Подключить файл <span
+                                class="info-installation__bold">js/libs/popup.js</span> в файле <span
+                                class="info-installation__bold">js/app.js</span> —
+                            раскомментировать строку import <span
+                                class="info-installation__bold">‘./libs/popup.js’</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ==============================================================================================-->
+                <div class="info-content__block">
+                    <h2 class="info-installation__title">Использование функционала</h2>
+                    <div class="info-post__text">
+                        Для того, чтобы вызвать попап, необходимо на странице ввести объект с дата-атрибутом, в котором
+                        указан
+                        селектор (класс или id) всплывающего окна, на которое ссылаемся:
+                    </div>
+                    <div class="info-installation__code">
+                        <code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span
+                                class="value">"#"</span> <span class="attribute">data-popup</span>=<span class="value">"#popup"</span> <span
+                                class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Я открываю
+                            попап<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
+                    </div>
+                    <div class="info-post__text">
+                        Далее открыть файл <span class="info-installation__bold">html/_popup.htm,</span>
+                        раскомментировать HTML-код
+                        подготовки попапа, указать селектор (id или класс) по которому вызывается попап, изменить код
+                        под свои
+                        нужды.
+                    </div>
+                    <div class="info-post__text">
+                        <i>В примере попап вызывается по id popup:</i>
+                    </div>
+                    <pre class="info-installation__code">
+				<code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span
+                        class="value">"popup"</span> <span class="attribute">aria-hidden</span>=<span class="value">"true"</span> <span
+                        class="attribute">class</span>=<span class="value">"popup"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span
+                            class="value">"popup__wrapper"</span>&gt;</span>
+						<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span
+                                class="value">"popup__content"</span>&gt;</span>
+							<span class="tag">&lt;<span class="title">button</span> <span
+                                    class="attribute">data-close</span> <span class="attribute">type</span>=<span
+                                    class="value">"button"</span> <span class="attribute">class</span>=<span
+                                    class="value">"popup__close"</span>&gt;</span>Закрыть<span class="tag">&lt;/<span
+                            class="title">button</span>&gt;</span>
+							<span class="tag">&lt;<span class="title">div</span> <span
+                                    class="attribute">class</span>=<span class="value">"popup__text"</span>&gt;</span>
 				
 							<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 						<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
@@ -90,129 +122,158 @@
 				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
 				</pre>
 
-						<div class="info-post__text">
-							Стили попапа можно писать и изменять в файле <span class="info-installation__bold">scss/base/popup.scss</span>
-						</div>
-					</div>
-					<!-- ==============================================================================================-->
-					<div class="info-content__block">
-						<h2 class="info-installation__title">Открытие YouTube видео в попапе</h2>
-						<div class="info-post__text">
-							Для того чтобы открыть видеоролик в попапе, следует добавить к кнопке, которая вызывает попап, атрибут <span class="info-installation__bold">data-popup-youtube</span>, а в качестве значения указать код ролика.
-							Также следует указать атрибут <span class="info-installation__bold">data-popup-youtube-place</span> для
-							объекта в котором хотим вывести ролик (если атрибут data-popup-youtube-place не будет указан, ролик
-							автоматически появится в объекте с классом <span class="info-installation__bold">popup__text</span> ):
-						</div>
-						<div class="info-installation__code">
-							<code class="xml"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">data-popup</span>=<span class="value">"#video"</span> <span class="attribute">data-popup-youtube</span>=<span class="value">"6S5Zw2WuyFE"</span>&gt;</span>Видео<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code>
-						</div>
+                    <div class="info-post__text">
+                        Стили попапа можно писать и изменять в файле <span class="info-installation__bold">scss/base/popup.scss</span>
+                    </div>
+                </div>
+                <!-- ==============================================================================================-->
+                <div class="info-content__block">
+                    <h2 class="info-installation__title">Открытие YouTube видео в попапе</h2>
+                    <div class="info-post__text">
+                        Для того чтобы открыть видеоролик в попапе, следует добавить к кнопке, которая вызывает попап,
+                        атрибут <span class="info-installation__bold">data-popup-youtube</span>, а в качестве значения
+                        указать код ролика.
+                        Также следует указать атрибут <span
+                            class="info-installation__bold">data-popup-youtube-place</span> для
+                        объекта в котором хотим вывести ролик (если атрибут data-popup-youtube-place не будет указан,
+                        ролик
+                        автоматически появится в объекте с классом <span
+                            class="info-installation__bold">popup__text</span> ):
+                    </div>
+                    <div class="info-installation__code">
+                        <code class="xml"><span class="tag">&lt;<span class="title">button</span> <span
+                                class="attribute">type</span>=<span class="value">"button"</span> <span
+                                class="attribute">data-popup</span>=<span class="value">"#video"</span> <span
+                                class="attribute">data-popup-youtube</span>=<span class="value">"6S5Zw2WuyFE"</span>&gt;</span>Видео<span
+                                class="tag">&lt;/<span class="title">button</span>&gt;</span></code>
+                    </div>
 
-						<pre class="info-installation__code">
-				<code class="xml"> <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"video"</span> <span class="attribute">aria-hidden</span>=<span class="value">"true"</span> <span class="attribute">class</span>=<span class="value">"popup"</span>&gt;</span>
-					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__wrapper"</span>&gt;</span>
-						<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__content"</span>&gt;</span>
-							<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-close</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"popup__close"</span>&gt;</span>Закрыть<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-							<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-youtube-place</span> <span class="attribute">class</span>=<span class="value">"popup__text"</span>&gt;</span>
+                    <pre class="info-installation__code">
+				<code class="xml"> <span class="tag">&lt;<span class="title">div</span> <span
+                        class="attribute">id</span>=<span class="value">"video"</span> <span class="attribute">aria-hidden</span>=<span
+                        class="value">"true"</span> <span class="attribute">class</span>=<span
+                        class="value">"popup"</span>&gt;</span>
+					<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span
+                            class="value">"popup__wrapper"</span>&gt;</span>
+						<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span
+                                class="value">"popup__content"</span>&gt;</span>
+							<span class="tag">&lt;<span class="title">button</span> <span
+                                    class="attribute">data-close</span> <span class="attribute">type</span>=<span
+                                    class="value">"button"</span> <span class="attribute">class</span>=<span
+                                    class="value">"popup__close"</span>&gt;</span>Закрыть<span class="tag">&lt;/<span
+                            class="title">button</span>&gt;</span>
+							<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-youtube-place</span> <span
+                                    class="attribute">class</span>=<span class="value">"popup__text"</span>&gt;</span>
 				
 							<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 						<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 					<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code>
 			</pre>
-						<div class="info-post__text">
-							Стили попапа можно писать и изменять в файле <span class="info-installation__bold">scss/base/popup.scss</span>
-						</div>
-					</div>
-					<!-- ==============================================================================================-->
-					<div class="info-content__block">
-						<h2 class="info-installation__title">Открытие попапа по хешу</h2>
-						<div class="info-post__text">
-							Для того чтобы открыть попап при открытии страницы, добавляем к адресу хеш с именем селектора попапа
-						</div>
-						<div class="info-installation__code">
-							<code class="ruby"><span class="symbol">https:</span>/<span class="regexp">/template.fls.guru/index</span>.html<span class="comment">#popup</span></code>
-						</div>
-					</div>
-					<!-- ==============================================================================================-->
-					<div class="info-content__block">
-						<h2 class="info-installation__title">Методы и события</h2>
-						<h2 class="info-installation__title">Методы</h2>
-						<div class="info-post__text">
-							Работать с попапом из любого места можно импортировав переменную <span class="info-installation__bold">flsModules:</span>
-						</div>
-						<div class="info-installation__code">
-							<code class="python"><span class="keyword">import</span> { flsModules } <span class="keyword">from</span> <span class="string">"./modules.js"</span>;</code>
-						</div>
-						<div class="info-post__text">
-							Далее обратится к классу <span class="info-installation__bold">popup</span> и работать с методом, например
-							<span class="info-installation__bold">open()</span>
-						</div>
-						<div class="info-installation__code">
-							<code class="http"><span class="variable">flsModules.popup.open('#popup')</span></code>
-						</div>
-						<div class="info-post__text">
-							где <span class="info-installation__bold">#popup</span> селектор попапа
-						</div>
-					</div>
-					<!-- ==============================================================================================-->
-					<div class="info-content__block">
-						<h2 class="info-installation__title">События</h2>
-						<div class="info-post__text">
-							В классе попапов существуют ряд событий:
-						</div>
-						<ul class="info-content__list">
-							<li class="info-installation__item">
-								<span class="info-installation__bold">beforePopupOpen</span> — сработает перед открытием попапа
-							</li>
-							<li class="info-installation__item">
-								<span class="info-installation__bold">afterPopupOpen</span> — сработает после открытия попапа
-							</li>
-							<li class="info-installation__item">
-								<span class="info-installation__bold">beforePopupClose</span> — сработает перед закрытием попапа
-							</li>
-							<li class="info-installation__item">
-								<span class="info-installation__bold">afterPopupClose</span> — сработает после закрытия попапа
-							</li>
-						</ul>
-						<div class="info-post__text">
-							Чтобы работать с событием вешаем прослушку на document
-						</div>
-						<pre class="info-installation__code">
-				<code class="javascript">document.addEventListener(<span class="string">"afterPopupOpen"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+                    <div class="info-post__text">
+                        Стили попапа можно писать и изменять в файле <span class="info-installation__bold">scss/base/popup.scss</span>
+                    </div>
+                </div>
+                <!-- ==============================================================================================-->
+                <div class="info-content__block">
+                    <h2 class="info-installation__title">Открытие попапа по хешу</h2>
+                    <div class="info-post__text">
+                        Для того чтобы открыть попап при открытии страницы, добавляем к адресу хеш с именем селектора
+                        попапа
+                    </div>
+                    <div class="info-installation__code">
+                        <code class="ruby"><span class="symbol">https:</span>/<span class="regexp">/template.fls.guru/index</span>.html<span
+                                class="comment">#popup</span></code>
+                    </div>
+                </div>
+                <!-- ==============================================================================================-->
+                <div class="info-content__block">
+                    <h2 class="info-installation__title">Методы и события</h2>
+                    <h2 class="info-installation__title">Методы</h2>
+                    <div class="info-post__text">
+                        Работать с попапом из любого места можно импортировав переменную <span
+                            class="info-installation__bold">flsModules:</span>
+                    </div>
+                    <div class="info-installation__code">
+                        <code class="python"><span class="keyword">import</span> { flsModules } <span class="keyword">from</span>
+                            <span class="string">"./modules.js"</span>;</code>
+                    </div>
+                    <div class="info-post__text">
+                        Далее обратится к классу <span class="info-installation__bold">popup</span> и работать с
+                        методом, например
+                        <span class="info-installation__bold">open()</span>
+                    </div>
+                    <div class="info-installation__code">
+                        <code class="http"><span class="variable">flsModules.popup.open('#popup')</span></code>
+                    </div>
+                    <div class="info-post__text">
+                        где <span class="info-installation__bold">#popup</span> селектор попапа
+                    </div>
+                </div>
+                <!-- ==============================================================================================-->
+                <div class="info-content__block">
+                    <h2 class="info-installation__title">События</h2>
+                    <div class="info-post__text">
+                        В классе попапов существуют ряд событий:
+                    </div>
+                    <ul class="info-content__list">
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">beforePopupOpen</span> — сработает перед открытием
+                            попапа
+                        </li>
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">afterPopupOpen</span> — сработает после открытия
+                            попапа
+                        </li>
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">beforePopupClose</span> — сработает перед закрытием
+                            попапа
+                        </li>
+                        <li class="info-installation__item">
+                            <span class="info-installation__bold">afterPopupClose</span> — сработает после закрытия
+                            попапа
+                        </li>
+                    </ul>
+                    <div class="info-post__text">
+                        Чтобы работать с событием вешаем прослушку на document
+                    </div>
+                    <pre class="info-installation__code">
+				<code class="javascript">document.addEventListener(<span class="string">"afterPopupOpen"</span>, <span
+                        class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
 					<span class="comment">// Попап</span>
 					<span class="keyword">const</span> currentPopup = e.detail.popup;
 				});</code>
 			</pre>
-					</div>
-					<!-- ==============================================================================================-->
-				</div>
-				<div class="navigation">
-					<div class="navigation__container">
-						<div class="navigation__content">
-							<a href="menu-burger.html" class="template__prev">
-								<< Предыдущая страница</a>
-									<a href="dinamicheskij-adaptiv.html" class="template__next">Следующая страница >> </a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="footer__container">
-			</div>
-		</footer>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
-			</div>
-		</div>
-	</div>
+                </div>
+                <!-- ==============================================================================================-->
+            </div>
+            <div class="navigation">
+                <div class="navigation__container">
+                    <div class="navigation__content">
+                        <a href="menu-burger.html" class="template__prev">
+                            << Предыдущая страница</a>
+                        <a href="dinamicheskij-adaptiv.html" class="template__next">Следующая страница >> </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+        </div>
+    </footer>
+</div>
+<!-- <div id="popup" aria-hidden="true" class="popup">
+<div class="popup__wrapper">
+    <div class="popup__content">
+        <button data-close type="button" class="popup__close">Закрыть</button>
+        <div class="popup__text">
+            Text
+        </div>
+    </div>
+</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220722224813"></script>
+<script src="js/app.min.js?_v=20221129152204"></script>
 </body>
 
 </html>
