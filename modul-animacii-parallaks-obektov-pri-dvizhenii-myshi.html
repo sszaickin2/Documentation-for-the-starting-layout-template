@@ -2,110 +2,122 @@
 <html lang="ru">
 
 <head>
-	<title>Модуль анимации (параллакс) объектов при движении мыши</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
-	<link rel="shortcut icon" href="favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль анимации (параллакс) объектов при движении мыши</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
 <body>
-	<div class="wrapper">
-		<header class="header">
-			<div class="header__container">
-				<div class="header__menu menu">
-					<button type="button" class="menu__icon icon-menu"><span></span></button>
-					<nav id="menu" class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
-							<li class="menu__item"><a href="https://github.com/sszaickin2/TEMPLATE" class="menu__link">Скачать</a>
-							</li>
-							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="article">
-				<div class="article__container">
-					<h1 class="installation__title">Модуль анимации (параллакс) объектов при движении мыши</h1>
-					<p class="installation__cat">Категории:
-						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
-					</p>
-					<div class="info-post__text">
-						Шикарный модуль для создания интерактивной анимации на вашей странице. Различные объекты могут плавно
-						передвигаться реагируя на перемещения курсора мыши.
-					</div>
-					<h2 class="info-installation__title">Подключение функционала</h2>
-					<div class="info-post__text">
-						<span class="info-installation__bold">[HTML]</span> К объекту, который следует анимировать, необходимо добавить
-						атрибут <span class="info-installation__bold">data-prlx-mouse</span>
-					</div>
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"img/cover.jpg"</span> <span class="attribute">data-prlx-mouse</span> <span class="attribute">alt</span>=<span class="value">"Картинка"</span>&gt;</span></code>
-					</div>
-					<div class="info-post__text">
-						<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку import <span class="info-installation__bold">‘./libs/parallax-mouse.js’</span>
-					</div>
-					<h2 class="info-installation__title">Дополнительные настройки</h2>
-					<ul class="info-content__list">
-						<li class="info-installation__item">
-							<span class="info-installation__bold">data-prlx-cx=коэффициент_х</span> (значение по умолчанию 100) —
-							управление процентом сдвига по оси X
-						</li>
-						<li class="info-installation__item">
-							<span class="info-installation__bold">data-prlx-cy=коэффициент_y</span> (значение по умолчанию 100) —
-							управление процентом сдвига по оси Y
-						</li>
-						<li class="info-installation__item">
-							<span class="info-installation__bold">data-prlx-a=скорость анимации</span> (значение по умолчанию 50) —
-							управление скоростью анимации
-						</li>
-						<li class="info-installation__item">
-							<span class="info-installation__bold">data-prlx-dxr</span> — движение в противоположном направлении по оси X
-						</li>
-						<li class="info-installation__item">
-							<span class="info-installation__bold">data-prlx-dxy</span> — движение в противоположном направлении по оси Y
-						</li>
-					</ul>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__menu menu">
+                <button type="button" class="menu__icon icon-menu"><span></span></button>
+                <nav id="menu" class="menu__body">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+                        <li class="menu__item"><a href="https://disk.yandex.ru/d/SdBqMRWToX0Kgw" class="menu__link">Скачать</a>
+                        </li>
+                        <li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="page">
+        <section class="article">
+            <div class="article__container">
+                <h1 class="installation__title">Модуль анимации (параллакс) объектов при движении мыши</h1>
+                <p class="installation__cat">Категории:
+                    <a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+                </p>
+                <div class="info-post__text">
+                    Шикарный модуль для создания интерактивной анимации на вашей странице. Различные объекты могут
+                    плавно
+                    передвигаться реагируя на перемещения курсора мыши.
+                </div>
+                <h2 class="info-installation__title">Подключение функционала</h2>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[HTML]</span> К объекту, который следует анимировать,
+                    необходимо добавить
+                    атрибут <span class="info-installation__bold">data-prlx-mouse</span>
+                </div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">img</span> <span
+                            class="attribute">src</span>=<span class="value">"img/cover.jpg"</span> <span
+                            class="attribute">data-prlx-mouse</span> <span class="attribute">alt</span>=<span
+                            class="value">"Картинка"</span>&gt;</span></code>
+                </div>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span>
+                    раскомментировать строку import <span
+                        class="info-installation__bold">‘./libs/parallax-mouse.js’</span>
+                </div>
+                <h2 class="info-installation__title">Дополнительные настройки</h2>
+                <ul class="info-content__list">
+                    <li class="info-installation__item">
+                        <span class="info-installation__bold">data-prlx-cx=коэффициент_х</span> (значение по умолчанию
+                        100) —
+                        управление процентом сдвига по оси X
+                    </li>
+                    <li class="info-installation__item">
+                        <span class="info-installation__bold">data-prlx-cy=коэффициент_y</span> (значение по умолчанию
+                        100) —
+                        управление процентом сдвига по оси Y
+                    </li>
+                    <li class="info-installation__item">
+                        <span class="info-installation__bold">data-prlx-a=скорость анимации</span> (значение по
+                        умолчанию 50) —
+                        управление скоростью анимации
+                    </li>
+                    <li class="info-installation__item">
+                        <span class="info-installation__bold">data-prlx-dxr</span> — движение в противоположном
+                        направлении по оси X
+                    </li>
+                    <li class="info-installation__item">
+                        <span class="info-installation__bold">data-prlx-dxy</span> — движение в противоположном
+                        направлении по оси Y
+                    </li>
+                </ul>
 
-					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
-					<div class="info-post__text">
-						Функционал находится в <span class="info-installation__bold">js/libs/parallax-mouse.js.</span>
-					</div>
-				</div>
-				<div class="navigation">
-					<div class="navigation__container">
-						<div class="navigation__content">
-							<a href="modul-galereya.html" class="template__prev">
-								<< Предыдущая страница</a>
-									<a href="modul-raboty-s-kalendarem-js-datepicker.html" class="template__next">Следующая
-										страница
-										>></a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="footer__container">
-			</div>
-		</footer>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
-			</div>
-		</div>
-	</div>
+                <h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+                <div class="info-post__text">
+                    Функционал находится в <span class="info-installation__bold">js/libs/parallax-mouse.js.</span>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="navigation__container">
+                    <div class="navigation__content">
+                        <a href="modul-galereya.html" class="template__prev">
+                            << Предыдущая страница</a>
+                        <a href="modul-raboty-s-kalendarem-js-datepicker.html" class="template__next">Следующая
+                            страница
+                            >></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+        </div>
+    </footer>
+</div>
+<!-- <div id="popup" aria-hidden="true" class="popup">
+<div class="popup__wrapper">
+    <div class="popup__content">
+        <button data-close type="button" class="popup__close">Закрыть</button>
+        <div class="popup__text">
+            Text
+        </div>
+    </div>
+</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221129152204"></script>
+<script src="js/app.min.js?_v=20221129152204"></script>
 </body>
 
 </html>

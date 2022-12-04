@@ -2,101 +2,114 @@
 <html lang="ru">
 
 <head>
-	<title>Модуль «Динамический адаптив»</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
-	<link rel="shortcut icon" href="favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль «Динамический адаптив»</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
-		<header class="header">
-			<div class="header__container">
-				<div class="header__menu menu">
-					<button type="button" class="menu__icon icon-menu"><span></span></button>
-					<nav id="menu" class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item"><a href="../template-docs.html" class="menu__link">Документация</a></li>
-							<li class="menu__item"><a href="https://github.com/sszaickin2/TEMPLATE" class="menu__link">Скачать</a>
-							</li>
-							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="adaptive">
-				<div class="adaptive__container">
-					<h1 class="installation__title">Модуль «Динамический адаптив»</h1>
-					<p class="installation__cat">Категории:
-						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
-					</p>
-					<div class="info-post__text">
-						Во время работы над адаптивом сайта, нам то и дело приходится изменять внешний вид объекта. В некоторых случаях
-						нам необходимо изменить порядок элементов, когда при определенном разрешении экрана некоторый блок должен
-						находится в совершенно другом месте структуры. Особенно часто это требуется при адаптации шапки сайта когда
-						необходимо перенести блок с контактами в меню-бургер.
-					</div>
-					<div class="info-post__text">
-						Функционал динамического адаптива перемещает необходимый блок (на определенном разрешении) в другой блок.
-						Перемещение отображается в разметке HTML.
-					</div>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__menu menu">
+                <button type="button" class="menu__icon icon-menu"><span></span></button>
+                <nav id="menu" class="menu__body">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+                        <li class="menu__item"><a href="https://disk.yandex.ru/d/SdBqMRWToX0Kgw" class="menu__link">Скачать</a>
+                        </li>
+                        <li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="page">
+        <section class="adaptive">
+            <div class="adaptive__container">
+                <h1 class="installation__title">Модуль «Динамический адаптив»</h1>
+                <p class="installation__cat">Категории:
+                    <a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+                </p>
+                <div class="info-post__text">
+                    Во время работы над адаптивом сайта, нам то и дело приходится изменять внешний вид объекта. В
+                    некоторых случаях
+                    нам необходимо изменить порядок элементов, когда при определенном разрешении экрана некоторый блок
+                    должен
+                    находится в совершенно другом месте структуры. Особенно часто это требуется при адаптации шапки
+                    сайта когда
+                    необходимо перенести блок с контактами в меню-бургер.
+                </div>
+                <div class="info-post__text">
+                    Функционал динамического адаптива перемещает необходимый блок (на определенном разрешении) в другой
+                    блок.
+                    Перемещение отображается в разметке HTML.
+                </div>
 
-					<h2 class="info-installation__title">Подключение функционала</h2>
-					<div class="info-post__text">
-						[JS] В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span class="info-installation__bold">import «./libs/dynamic_adapt.js»</span>
-					</div>
+                <h2 class="info-installation__title">Подключение функционала</h2>
+                <div class="info-post__text">
+                    [JS] В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span
+                        class="info-installation__bold">import «./libs/dynamic_adapt.js»</span>
+                </div>
 
-					<h2 class="info-installation__title">Использование функционала</h2>
-					<div class="info-post__text">
-						[HTML] В блок который нужно переместить добавляем атрибут <span class="info-installation__bold">data-da</span>
-						со значениями атрибута указанными ниже:
-					</div>
-					<picture><source srcset="img/installation/image1.webp" type="image/webp"><img src="img/installation/image1.jpg" alt=""></picture>
+                <h2 class="info-installation__title">Использование функционала</h2>
+                <div class="info-post__text">
+                    [HTML] В блок который нужно переместить добавляем атрибут <span class="info-installation__bold">data-da</span>
+                    со значениями атрибута указанными ниже:
+                </div>
+                <picture>
+                    <source srcset="img/installation/image1.webp" type="image/webp">
+                    <img src="img/installation/image1.jpg" alt=""></picture>
 
-					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
-					<div class="info-post__text">
-						Функционал находится в <span class="info-installation__bold">js/libs/dynamic_adapt.js.</span> Название функции
-						<span class="info-installation__bold">DynamicAdapt(type).</span>
-					</div>
-					<div class="info-post__text">
-						У модуля есть ограничения, например, если перекидывать несколько объектов одновременно в один и тот же блок,
-						может возникнуть путаница с порядком блоков.
-					</div>
+                <h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+                <div class="info-post__text">
+                    Функционал находится в <span class="info-installation__bold">js/libs/dynamic_adapt.js.</span>
+                    Название функции
+                    <span class="info-installation__bold">DynamicAdapt(type).</span>
+                </div>
+                <div class="info-post__text">
+                    У модуля есть ограничения, например, если перекидывать несколько объектов одновременно в один и тот
+                    же блок,
+                    может возникнуть путаница с порядком блоков.
+                </div>
 
-					<h2 class="info-installation__title">Дополнительные материалы</h2>
-					<iframe width="100%" height="585" src="https://www.youtube.com/embed/QKuMr575vlQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="navigation">
-					<div class="navigation__container">
-						<div class="navigation__content">
-							<a href="funkcional-popup.html" class="template__prev">
-								<< Предыдущая страница</a>
-									<a href="modul-plavnoj-navigacii-po-stranice.html" class="template__next">Следующая страница >> </a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="footer__container">
-			</div>
-		</footer>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
-			</div>
-		</div>
-	</div>
+                <h2 class="info-installation__title">Дополнительные материалы</h2>
+                <iframe width="100%" height="585" src="https://www.youtube.com/embed/QKuMr575vlQ"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="navigation">
+                <div class="navigation__container">
+                    <div class="navigation__content">
+                        <a href="funkcional-popup.html" class="template__prev">
+                            << Предыдущая страница</a>
+                        <a href="modul-plavnoj-navigacii-po-stranice.html" class="template__next">Следующая страница
+                            >> </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+        </div>
+    </footer>
+</div>
+<!-- <div id="popup" aria-hidden="true" class="popup">
+<div class="popup__wrapper">
+    <div class="popup__content">
+        <button data-close type="button" class="popup__close">Закрыть</button>
+        <div class="popup__text">
+            Text
+        </div>
+    </div>
+</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221129152204"></script>
+<script src="js/app.min.js?_v=20221129152204"></script>
 </body>
 
 </html>

@@ -2,147 +2,175 @@
 <html lang="ru">
 
 <head>
-	<title>Модуль добавления классов к шапке при прокрутке страницы</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
-	<link rel="shortcut icon" href="favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль добавления классов к шапке при прокрутке страницы</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
-		<header class="header">
-			<div class="header__container">
-				<div class="header__menu menu">
-					<button type="button" class="menu__icon icon-menu"><span></span></button>
-					<nav id="menu" class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
-							<li class="menu__item"><a href="https://github.com/sszaickin2/TEMPLATE" class="menu__link">Скачать</a>
-							</li>
-							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="add">
-				<div class="add__container">
-					<h1 class="installation__title">Модуль добавления классов к шапке при прокрутке страницы</h1>
-					<p class="installation__cat">Категории:
-						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
-					</p>
-					<div class="info-post__text">
-						Функционал позволяет добавлять класс к тегу header с классом header при прокрутке страницы вниз, а также другой
-						класс при остановке прокрутки. Таким образом, можно добиться эффекта когда при самом скролле вниз шапка не
-						видна, но стоит остановить скролл, как шапка плавно появляется вверху страницы (становится фиксированной). При
-						обратной прокрутке вверх шапка так же остается видна.
-					</div>
-					<div class="info-post__text">
-						Класс <span class="info-installation__bold">_header-scroll</span> добавляется к шапке при скролле вниз (через
-						указанное кол-во пикселей).
-						При остановке скролла добавляется класс <span class="info-installation__bold">_header-show.</span>
-					</div>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__menu menu">
+                <button type="button" class="menu__icon icon-menu"><span></span></button>
+                <nav id="menu" class="menu__body">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+                        <li class="menu__item"><a href="https://disk.yandex.ru/d/SdBqMRWToX0Kgw" class="menu__link">Скачать</a>
+                        </li>
+                        <li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="page">
+        <section class="add">
+            <div class="add__container">
+                <h1 class="installation__title">Модуль добавления классов к шапке при прокрутке страницы</h1>
+                <p class="installation__cat">Категории:
+                    <a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+                </p>
+                <div class="info-post__text">
+                    Функционал позволяет добавлять класс к тегу header с классом header при прокрутке страницы вниз, а
+                    также другой
+                    класс при остановке прокрутки. Таким образом, можно добиться эффекта когда при самом скролле вниз
+                    шапка не
+                    видна, но стоит остановить скролл, как шапка плавно появляется вверху страницы (становится
+                    фиксированной). При
+                    обратной прокрутке вверх шапка так же остается видна.
+                </div>
+                <div class="info-post__text">
+                    Класс <span class="info-installation__bold">_header-scroll</span> добавляется к шапке при скролле
+                    вниз (через
+                    указанное кол-во пикселей).
+                    При остановке скролла добавляется класс <span class="info-installation__bold">_header-show.</span>
+                </div>
 
-					<h2 class="info-installation__title">Подключение функционала</h2>
-					<div class="info-post__text">
-						<span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span class="info-installation__bold">flsScroll.headerScroll();</span>
-					</div>
+                <h2 class="info-installation__title">Подключение функционала</h2>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[JS]</span> В файле <span class="info-installation__bold">js/app.js</span>
+                    раскомментировать строку <span class="info-installation__bold">flsScroll.headerScroll();</span>
+                </div>
 
-					<h2 class="info-installation__title">Использование функционала</h2>
-					<div class="info-post__text">
-						<span class="info-installation__bold">[HTML]</span> К тегу header, добавляем HTML-атрибут <span class="info-installation__bold">data-scroll</span>, в значении атрибута указываем через какое кол-во
-						прокрученных вниз пикселей нам необходимо добавить класс к header (обычно по высоте шапки, по умолчанию 1px).
-					</div>
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span class="value">"120"</span> <span class="attribute">class</span>=<span class="value">"header"</span>&gt;</span>
-							...
-							<span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
-					</div>
+                <h2 class="info-installation__title">Использование функционала</h2>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[HTML]</span> К тегу header, добавляем HTML-атрибут <span
+                        class="info-installation__bold">data-scroll</span>, в значении атрибута указываем через какое
+                    кол-во
+                    прокрученных вниз пикселей нам необходимо добавить класс к header (обычно по высоте шапки, по
+                    умолчанию 1px).
+                </div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span
+                            class="value">"120"</span> <span class="attribute">class</span>=<span
+                            class="value">"header"</span>&gt;</span>
+                        ...
+                        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
+                </div>
 
-					<div class="info-post__text">
-						Теперь как только пользователь прокрутит вниз указанные выше 120px к header добавится технический класс <span class="info-installation__bold">_header-scroll.</span> Этот класс будет присутствовать до тех пор, пока
-						пользователь не вернется на самый вверх (не доходя 120px).
-					</div>
+                <div class="info-post__text">
+                    Теперь как только пользователь прокрутит вниз указанные выше 120px к header добавится технический
+                    класс <span class="info-installation__bold">_header-scroll.</span> Этот класс будет присутствовать
+                    до тех пор, пока
+                    пользователь не вернется на самый вверх (не доходя 120px).
+                </div>
 
-					<div class="info-post__text">
-						Результат работы:
-					</div>
+                <div class="info-post__text">
+                    Результат работы:
+                </div>
 
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span class="value">"120"</span> <span class="attribute">class</span>=<span class="value">"header _header-scroll"</span>&gt;</span>
-							...
-							<span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
-					</div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span
+                            class="value">"120"</span> <span class="attribute">class</span>=<span class="value">"header _header-scroll"</span>&gt;</span>
+                        ...
+                        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
+                </div>
 
-					<div class="info-post__text">
-						<span class="info-installation__bold">[HTML]</span> Далее к тегу header, добавляем еще один HTML-атрибут <span class="info-installation__bold">data-scroll-show.</span> Как только пользователь остановит прокрутку к тегу
-						header, через определенное время, добавится еще один технический класс <span class="info-installation__bold">_header-show.</span> Этот класс исчезает только в моменте прокрутке вниз.
-						При прокрутке вверх класс не исчезает.
-					</div>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[HTML]</span> Далее к тегу header, добавляем еще один
+                    HTML-атрибут <span class="info-installation__bold">data-scroll-show.</span> Как только пользователь
+                    остановит прокрутку к тегу
+                    header, через определенное время, добавится еще один технический класс <span
+                        class="info-installation__bold">_header-show.</span> Этот класс исчезает только в моменте
+                    прокрутке вниз.
+                    При прокрутке вверх класс не исчезает.
+                </div>
 
-					<div class="info-post__text">
-						Результат работы:
-					</div>
+                <div class="info-post__text">
+                    Результат работы:
+                </div>
 
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span class="value">"120"</span> <span class="attribute">data-scroll-show</span> <span class="attribute">class</span>=<span class="value">"header _header-scroll _header-show"</span>&gt;</span>
-							...
-							<span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
-					</div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span
+                            class="value">"120"</span> <span class="attribute">data-scroll-show</span> <span
+                            class="attribute">class</span>=<span
+                            class="value">"header _header-scroll _header-show"</span>&gt;</span>
+                        ...
+                        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
+                </div>
 
-					<div class="info-post__text">
-						Время задержки добавления класса <span class="info-installation__bold">_header-show</span> можно менять. Для
-						это следует указать значение атрибута <span class="info-installation__bold">data-scroll-show</span> в
-						миллисекундах (по умолчанию 500)
-					</div>
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span class="value">"120"</span> <span class="attribute">data-scroll-show</span>=<span class="value">"1000"</span> <span class="attribute">class</span>=<span class="value">"header _header-scroll _header-show"</span>&gt;</span>
-							...
-							<span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
-					</div>
-					<div class="info-post__text">
-						<span class="info-installation__bold">[SCSS]</span> Теперь осталось отредактировать свойства этих подключенных
-						классов в scss. Например:
-					</div>
-					<picture><source srcset="img/installation/image2.webp" type="image/webp"><img class="info-installation__image" src="img/installation/image2.jpg" alt=""></picture>
+                <div class="info-post__text">
+                    Время задержки добавления класса <span class="info-installation__bold">_header-show</span> можно
+                    менять. Для
+                    это следует указать значение атрибута <span class="info-installation__bold">data-scroll-show</span>
+                    в
+                    миллисекундах (по умолчанию 500)
+                </div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">header</span> <span class="attribute">data-scroll</span>=<span
+                            class="value">"120"</span> <span class="attribute">data-scroll-show</span>=<span
+                            class="value">"1000"</span> <span class="attribute">class</span>=<span class="value">"header _header-scroll _header-show"</span>&gt;</span>
+                        ...
+                        <span class="tag">&lt;/<span class="title">header</span>&gt;</span></code>
+                </div>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[SCSS]</span> Теперь осталось отредактировать свойства этих
+                    подключенных
+                    классов в scss. Например:
+                </div>
+                <picture>
+                    <source srcset="img/installation/image2.webp" type="image/webp">
+                    <img class="info-installation__image" src="img/installation/image2.jpg" alt=""></picture>
 
-					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
-					<div class="info-post__text">
-						Функционал находится в <span class="info-installation__bold">js/files/scroll/scroll.js.</span> Название функции
-						<span class="info-installation__bold">headerScroll()</span>
-					</div>
-				</div>
-				<div class="navigation">
-					<div class="navigation__container">
-						<div class="navigation__content">
-							<a href="modul-plavnoj-navigacii-po-stranice.html" class="template__prev">
-								<< Предыдущая страница</a>
-									<a href="modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html" class="template__next">Следующая
-										страница >></a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="footer__container">
-			</div>
-		</footer>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
-			</div>
-		</div>
-	</div>
+                <h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+                <div class="info-post__text">
+                    Функционал находится в <span class="info-installation__bold">js/files/scroll/scroll.js.</span>
+                    Название функции
+                    <span class="info-installation__bold">headerScroll()</span>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="navigation__container">
+                    <div class="navigation__content">
+                        <a href="modul-plavnoj-navigacii-po-stranice.html" class="template__prev">
+                            << Предыдущая страница</a>
+                        <a href="modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html" class="template__next">Следующая
+                            страница >></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+        </div>
+    </footer>
+</div>
+<!-- <div id="popup" aria-hidden="true" class="popup">
+<div class="popup__wrapper">
+    <div class="popup__content">
+        <button data-close type="button" class="popup__close">Закрыть</button>
+        <div class="popup__text">
+            Text
+        </div>
+    </div>
+</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221129152204"></script>
+<script src="js/app.min.js?_v=20221129152204"></script>
 </body>
 
 </html>

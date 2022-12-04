@@ -2,161 +2,209 @@
 <html lang="ru">
 
 <head>
-	<title>Модуль «Прокрутка к нужному блоку». Плавная навигация по странице.</title>
-	<meta charset="UTF-8">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
-	<link rel="shortcut icon" href="favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль «Прокрутка к нужному блоку». Плавная навигация по странице.</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.min.css?_v=20221129152204">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
-		<header class="header">
-			<div class="header__container">
-				<div class="header__menu menu">
-					<button type="button" class="menu__icon icon-menu"><span></span></button>
-					<nav id="menu" class="menu__body">
-						<ul class="menu__list">
-							<li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
-							<li class="menu__item"><a href="https://github.com/sszaickin2/TEMPLATE" class="menu__link">Скачать</a>
-							</li>
-							<li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="scroll">
-				<div class="scroll__container">
-					<h1 class="installation__title">Модуль «Прокрутка к нужному блоку». Плавная навигация по странице.</h1>
-					<p class="installation__cat">Категории:
-						<a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
-					</p>
-					<div class="info-post__text">
-						В данном модуле реализован плавный скролл после клика по ссылке (кнопке) до нужного блока на странице. Если в
-						адресе страницы будет передан хеш и блок с таким селектором будет найден на странице, прокрутка к блоку
-						произойдет автоматически. Также, модуль позволяет построить навигацию по странице с добавлением класса текущему
-						пункту навигации (пункту меню) при скролле к определенному блоку.
-					</div>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <div class="header__menu menu">
+                <button type="button" class="menu__icon icon-menu"><span></span></button>
+                <nav id="menu" class="menu__body">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="template-docs.html" class="menu__link">Документация</a></li>
+                        <li class="menu__item"><a href="https://disk.yandex.ru/d/SdBqMRWToX0Kgw" class="menu__link">Скачать</a>
+                        </li>
+                        <li class="menu__item"><a href="#" class="menu__link">Курсы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="page">
+        <section class="scroll">
+            <div class="scroll__container">
+                <h1 class="installation__title">Модуль «Прокрутка к нужному блоку». Плавная навигация по странице.</h1>
+                <p class="installation__cat">Категории:
+                    <a class="installation__link" href="template-docs.html">Документация "Стартового шаблона"</a>
+                </p>
+                <div class="info-post__text">
+                    В данном модуле реализован плавный скролл после клика по ссылке (кнопке) до нужного блока на
+                    странице. Если в
+                    адресе страницы будет передан хеш и блок с таким селектором будет найден на странице, прокрутка к
+                    блоку
+                    произойдет автоматически. Также, модуль позволяет построить навигацию по странице с добавлением
+                    класса текущему
+                    пункту навигации (пункту меню) при скролле к определенному блоку.
+                </div>
 
-					<h2 class="info-installation__title">Подключение модуля</h2>
-					<div class="info-post__text">
-						[JS] В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span class="info-installation__bold">flsScroll.pageNavigation();</span>
-					</div>
+                <h2 class="info-installation__title">Подключение модуля</h2>
+                <div class="info-post__text">
+                    [JS] В файле <span class="info-installation__bold">js/app.js</span> раскомментировать строку <span
+                        class="info-installation__bold">flsScroll.pageNavigation();</span>
+                </div>
 
-					<h2 class="info-installation__title">Использование функционала</h2>
-					<div class="info-post__text">
-						<span class="info-installation__bold">[HTML]</span> К элементам навигации (пунктам меню), либо к произвольному
-						объекту, добавляем HTML-атрибут <span class="info-installation__bold">data-goto</span> а в качестве значения
-						указываем CSS селектор блока до которого нужно прокрутить:
-					</div>
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto</span>=<span class="value">".имя класса блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-							<br>
-							<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto</span>=<span class="value">"#id блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
-					</div>
-					<div class="info-post__text">
-						Если нужно чтобы скролл учитывал шапку (не докручивал на высоту шапки, используется при фиксированных шапках)
-						нужно добавить к объекту навигации атрибут <span class="info-installation__bold">data-goto-header:</span>
-					</div>
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-header</span> <span class="attribute">data-goto</span>=<span class="value">".имя класса блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
-					</div>
+                <h2 class="info-installation__title">Использование функционала</h2>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">[HTML]</span> К элементам навигации (пунктам меню), либо к
+                    произвольному
+                    объекту, добавляем HTML-атрибут <span class="info-installation__bold">data-goto</span> а в качестве
+                    значения
+                    указываем CSS селектор блока до которого нужно прокрутить:
+                </div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">a</span> <span
+                            class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto</span>=<span
+                            class="value">".имя класса блока"</span> <span class="attribute">class</span>=<span
+                            class="value">"link"</span>&gt;</span>Пункт навигации<span class="tag">&lt;/<span
+                            class="title">a</span>&gt;</span>
+                        <br>
+                        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span
+                                class="value">"#"</span> <span class="attribute">data-goto</span>=<span class="value">"#id блока"</span> <span
+                                class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт
+                        навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
+                </div>
+                <div class="info-post__text">
+                    Если нужно чтобы скролл учитывал шапку (не докручивал на высоту шапки, используется при
+                    фиксированных шапках)
+                    нужно добавить к объекту навигации атрибут <span
+                        class="info-installation__bold">data-goto-header:</span>
+                </div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">a</span> <span
+                            class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-header</span> <span
+                            class="attribute">data-goto</span>=<span class="value">".имя класса блока"</span> <span
+                            class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт
+                        навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
+                </div>
 
-					<div class="info-post__text">
-						Если нужно чтобы скролл не докручивал до блока на указанную высоту необходимо добавить к объекту навигации
-						атрибут <span class="info-installation__bold">data-goto-top</span> а в качестве значения указать число —
-						необходимую высоту:
-					</div>
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-top</span>=<span class="value">"30"</span> <span class="attribute">data-goto</span>=<span class="value">"#id блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
-					</div>
+                <div class="info-post__text">
+                    Если нужно чтобы скролл не докручивал до блока на указанную высоту необходимо добавить к объекту
+                    навигации
+                    атрибут <span class="info-installation__bold">data-goto-top</span> а в качестве значения указать
+                    число —
+                    необходимую высоту:
+                </div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">a</span> <span
+                            class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-top</span>=<span
+                            class="value">"30"</span> <span class="attribute">data-goto</span>=<span class="value">"#id блока"</span> <span
+                            class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт
+                        навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
+                </div>
 
 
-					<div class="info-post__text">
-						<span class="info-installation__bold">data-goto-top</span> можно совмещать с <span class="info-installation__bold">data-goto-header</span>, тогда значение data-goto-top добавится к высоте
-						шапки.
-					</div>
+                <div class="info-post__text">
+                    <span class="info-installation__bold">data-goto-top</span> можно совмещать с <span
+                        class="info-installation__bold">data-goto-header</span>, тогда значение data-goto-top добавится
+                    к высоте
+                    шапки.
+                </div>
 
 
-					<h2 class="info-installation__title">Прокрутка к нужному блоку по хешу (при открытии страницы)</h2>
-					<div class="info-post__text">
-						Для того чтобы прокрутить страницу к нужному блоке при открытии страницы необходимо добавить к адресу хеш
-						содержащий <span class="info-installation__bold">имя класса нужного блока.</span>
-					</div>
-					<div class="info-post__text">
-						<i>Пример адресной строки и нужного блока:</i>
-					</div>
-					<div class="info-installation__code">
-						<code class="ruby"><span class="symbol">https:</span>/<span class="regexp">/template.fls.guru/index</span>.html<span class="comment">#some-section</span></code>
-					</div>
+                <h2 class="info-installation__title">Прокрутка к нужному блоку по хешу (при открытии страницы)</h2>
+                <div class="info-post__text">
+                    Для того чтобы прокрутить страницу к нужному блоке при открытии страницы необходимо добавить к
+                    адресу хеш
+                    содержащий <span class="info-installation__bold">имя класса нужного блока.</span>
+                </div>
+                <div class="info-post__text">
+                    <i>Пример адресной строки и нужного блока:</i>
+                </div>
+                <div class="info-installation__code">
+                    <code class="ruby"><span class="symbol">https:</span>/<span
+                            class="regexp">/template.fls.guru/index</span>.html<span
+                            class="comment">#some-section</span></code>
+                </div>
 
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"some-section"</span>&gt;</span>
-							...
-							<span class="tag">&lt;/<span class="title">section</span>&gt;</span></code>
-					</div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span
+                            class="value">"some-section"</span>&gt;</span>
+                        ...
+                        <span class="tag">&lt;/<span class="title">section</span>&gt;</span></code>
+                </div>
 
-					<h2 class="info-installation__title">Добавление функционала, плавная прокрутка на iOS</h2>
-					<div class="info-post__text">
-						По умолчанию, прокрутка выполняется методом scrollTo() с параметром behavior: «smooth» без применения
-						дополнительных плагинов. Но это ограничивает функционал этого модуля — нельзя указать скорость прокрутки, а
-						также могут возникнуть проблемы в <a class="info-installation__link" href="https://caniuse.com/?search=scrollTo">некоторых версия браузеров на iOS.</a> Для решения всех проблем,
-						можно подключить дополнительный плагин SmoothScroll, сделать это можно в файле <span class="info-installation__bold">js/files/scroll/gotoblock.js</span> раскомментировав строку <span class="info-installation__bold">import SmoothScroll from ‘smooth-scroll’;</span> дальнейшее переключение
-						прокрутки на плагин произойдет автоматически.
-					</div>
+                <h2 class="info-installation__title">Добавление функционала, плавная прокрутка на iOS</h2>
+                <div class="info-post__text">
+                    По умолчанию, прокрутка выполняется методом scrollTo() с параметром behavior: «smooth» без
+                    применения
+                    дополнительных плагинов. Но это ограничивает функционал этого модуля — нельзя указать скорость
+                    прокрутки, а
+                    также могут возникнуть проблемы в <a class="info-installation__link"
+                                                         href="https://caniuse.com/?search=scrollTo">некоторых версия
+                    браузеров на iOS.</a> Для решения всех проблем,
+                    можно подключить дополнительный плагин SmoothScroll, сделать это можно в файле <span
+                        class="info-installation__bold">js/files/scroll/gotoblock.js</span> раскомментировав строку
+                    <span class="info-installation__bold">import SmoothScroll from ‘smooth-scroll’;</span> дальнейшее
+                    переключение
+                    прокрутки на плагин произойдет автоматически.
+                </div>
 
-					<div class="info-post__text">
-						При работе с плагином появляется возможность указать скорость прокрутки, для этого элементу навигации нужно
-						добавить атрибут <span class="info-installation__bold">data-goto-speed</span> и указать число означающее
-						количество миллисекунд за которые совершится прокрутка (1000 = 1 секунда), по умолчанию 500.
-					</div>
+                <div class="info-post__text">
+                    При работе с плагином появляется возможность указать скорость прокрутки, для этого элементу
+                    навигации нужно
+                    добавить атрибут <span class="info-installation__bold">data-goto-speed</span> и указать число
+                    означающее
+                    количество миллисекунд за которые совершится прокрутка (1000 = 1 секунда), по умолчанию 500.
+                </div>
 
-					<div class="info-installation__code">
-						<code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-speed</span>=<span class="value">"1000"</span> <span class="attribute">data-goto</span>=<span class="value">".some-section"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
-					</div>
+                <div class="info-installation__code">
+                    <code class="xml"><span class="tag">&lt;<span class="title">a</span> <span
+                            class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-speed</span>=<span
+                            class="value">"1000"</span> <span class="attribute">data-goto</span>=<span class="value">".some-section"</span> <span
+                            class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт
+                        навигации<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code>
+                </div>
 
-					<h2 class="info-installation__title">Расположение и дополнительные данные</h2>
-					<div class="info-post__text">
-						Функционал находится в <span class="info-installation__bold">js/files/scroll/scroll.js.</span> Название функции
-						pageNavigation(). Вспомогательный модуль прокрутки <span class="info-installation__bold"></span> находится в
-						<span class="info-installation__bold">js/files/scroll/gotoblock.js.</span> Модуль наблюдатель находится в файле
-						<span class="info-installation__bold">js/libs/watcher.js.</span>
-					</div>
+                <h2 class="info-installation__title">Расположение и дополнительные данные</h2>
+                <div class="info-post__text">
+                    Функционал находится в <span class="info-installation__bold">js/files/scroll/scroll.js.</span>
+                    Название функции
+                    pageNavigation(). Вспомогательный модуль прокрутки <span class="info-installation__bold"></span>
+                    находится в
+                    <span class="info-installation__bold">js/files/scroll/gotoblock.js.</span> Модуль наблюдатель
+                    находится в файле
+                    <span class="info-installation__bold">js/libs/watcher.js.</span>
+                </div>
 
-					<div class="info-post__text">
-						Если в момент клика на пункт навигации было открыто меню «бургер», то оно закроется автоматически.
-					</div>
-				</div>
-				<div class="navigation">
-					<div class="navigation__container">
-						<div class="navigation__content">
-							<a href="dinamicheskij-adaptiv.html" class="template__prev">
-								<< Предыдущая страница</a>
-									<a href="modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html" class="template__next">Следующая страница >> </a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="footer__container">
-			</div>
-		</footer>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
-			</div>
-		</div>
-	</div>
+                <div class="info-post__text">
+                    Если в момент клика на пункт навигации было открыто меню «бургер», то оно закроется автоматически.
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="navigation__container">
+                    <div class="navigation__content">
+                        <a href="dinamicheskij-adaptiv.html" class="template__prev">
+                            << Предыдущая страница</a>
+                        <a href="modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html" class="template__next">Следующая
+                            страница >> </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+        </div>
+    </footer>
+</div>
+<!-- <div id="popup" aria-hidden="true" class="popup">
+<div class="popup__wrapper">
+    <div class="popup__content">
+        <button data-close type="button" class="popup__close">Закрыть</button>
+        <div class="popup__text">
+            Text
+        </div>
+    </div>
+</div>
 </div> -->
-	<script src="js/app.min.js?_v=20221129152204"></script>
+<script src="js/app.min.js?_v=20221129152204"></script>
 </body>
 
 </html>
